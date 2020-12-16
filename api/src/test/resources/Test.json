@@ -1,0 +1,16 @@
+{
+	"Auth0": {
+		"Issuer": "issuer-protocol-and-domain-for-issuer",
+		"JWK_Provider": "issuer-protocol-and-domain-for-jwk-provider"
+	},
+	"BigQuery": {
+		"Service_Account_Key": "/not-used-key.p12",
+		"Dataset": "not-for-testing-invalid-name",
+		"Products_Table": "not_for_testing_invalid_name"
+	},
+	"CSP": "additional-domains-accepted",
+	"CORS": ["domains-accepted"],
+	"System": {
+		"First_Email": "first-email-that-will-be-accepted-for-an-empty-system"
+	}
+}

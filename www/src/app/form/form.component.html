@@ -1,0 +1,55 @@
+<h1>Angular Material Form</h1>
+<p>Everything</p>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+	<div>
+		<label for="name">Name</label>
+		<input id="name" type="text" formControlName="name">
+	</div>
+
+	<div>
+		<label for="email">Email</label>
+		<input id="email" type="email" formControlName="email">
+	</div>
+
+	<div>
+		<label for="number">Number</label>
+		<input id="number" type="number" min="1" max="100" formControlName="number">
+	</div>
+
+	<div>
+		<label for="type">Typ</label>
+		<select id="type" formControlName="type">
+			<option>Type 1</option>
+			<option>Type 2</option>
+		</select>
+	</div>
+
+	<div>
+		<label for="toogle">Toogle</label>
+		<input id="toogle" type="checkbox" formControlName="toogle">
+	</div>
+
+	<!-- <div>
+		<label for="text">Text</label>
+		<textarea id="text formControlName="text"></textarea>
+	</div> -->
+
+	<mat-form-field><input type="color" formControlName="color"></mat-form-field>
+	<input type="date" formControlName="date">
+	<input type="datetime-local" formControlName="datetimeLocal">
+	<input type="file" formControlName="file">
+	<input type="month" formControlName="month">
+	<input type="password" formControlName="password">
+	<input type="radio" formControlName="radio">
+	<input type="range" formControlName="range">
+	<input type="reset">
+	<input type="search" formControlName="search">
+	<input type="tel" formControlName="tel">
+	<input type="time" formControlName="time">
+	<input type="url" formControlName="url">
+	<input type="week" formControlName="week">
+	
+	<input type="submit">
+	<button class="button" type="submit">Purchase</button>
+
+</form>

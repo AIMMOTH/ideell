@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Chewy', cursive;
+  font-weight: 1000 !important;
+  background: #ffFFdf;
+  color: #6199cb;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  color: #333333;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px;
+}
+
+.center {
+  text-align: center;
+}
+
+.item-image {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
