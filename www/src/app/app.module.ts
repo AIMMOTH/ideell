@@ -66,6 +66,7 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { SheetsComponent } from './sheets/sheets.component';
 import { ProductComponent } from './product/product.component';
 import { ChatComponent } from './chat/chat.component';
+import { SubheaderComponent } from './subheader/subheader.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -85,7 +86,8 @@ export function createTranslateLoader(http: HttpClient) {
     ProductFormComponent,
     SheetsComponent,
     ProductComponent,
-    ChatComponent
+    ChatComponent,
+    SubheaderComponent
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,8 @@
   <packaging>war</packaging>
   <version>0.1.0-SNAPSHOT</version>
 
-  <groupId>eu.euphoros.api</groupId>
-  <artifactId>euphoros-api</artifactId>
+  <groupId>eu.ideell.api</groupId>
+  <artifactId>ideell-api</artifactId>
 
   <properties>
     <appengine.maven.plugin.version>2.4.0</appengine.maven.plugin.version>
@@ -234,7 +234,7 @@
 
           <!-- CHANGE to your Google Standard App Engine Java 8 project ID -->
 
-          <projectId>euphoros-ideell-social-media</projectId>
+          <projectId>ideell</projectId>
 
           <version>default</version>
         </configuration>

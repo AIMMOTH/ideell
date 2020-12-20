@@ -5,15 +5,16 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Chewy', cursive;
+  font-family: 'Permanent Marker', cursive;
   font-weight: 1000 !important;
-  background: #ffFFdf;
-  color: #6199cb;
+  background: linear-gradient(#fbf9c5, #f7f5b0);
+  color: #493c3c;
 }
 
 p {
   font-family: 'Open Sans', sans-serif;
-  color: #333333;
+  color: #493c3c;
+  ;
 }
 
 .container {

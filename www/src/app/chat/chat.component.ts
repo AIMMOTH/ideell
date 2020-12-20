@@ -10,18 +10,18 @@ declare const Pusher: any;
 })
 export class ChatComponent implements OnInit {
 
-  chatName = 'euphoros-ideell-social-media-chat';
+  chatName = 'ideell-chat';
   pusher: any;
   channel: any;
   messages = [];
   input: string;
 
   constructor(private api: ApiService) {
-    this.pusher = new Pusher('7f5982073ac77a93652b', {
+    this.pusher = new Pusher('18692e0e009c67c79baf', {
       cluster: 'eu'
     });
     this.channel = this.pusher.subscribe(this.chatName);
-    this.channel.bind('euphoros-ideell-social-media-message-event', data => {
+    this.channel.bind('ideell-message-event', data => {
       const message = {
         received: new Date(),
         text: data.message
