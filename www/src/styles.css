@@ -5,7 +5,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', cursive !important;
   font-weight: 1000 !important;
   background: linear-gradient(#fbf9c5, #f7f5b0);
   color: #493c3c;
@@ -21,6 +21,11 @@ p {
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
+}
+
+.logo {
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .center {

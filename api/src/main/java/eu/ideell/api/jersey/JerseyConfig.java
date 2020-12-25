@@ -40,6 +40,6 @@ public class JerseyConfig extends JerseyDefaultConfig {
 
   @Override
   protected String getName() {
-    return "Euphoros - Ideell social media API";
+    return "Ideell - Idealistic social media API";
   }
 }

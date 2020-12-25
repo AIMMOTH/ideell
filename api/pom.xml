@@ -8,6 +8,7 @@
 
   <groupId>eu.ideell.api</groupId>
   <artifactId>ideell-api</artifactId>
+  <name>Ideell - Idealistic social media API</name>
 
   <properties>
     <appengine.maven.plugin.version>2.4.0</appengine.maven.plugin.version>
