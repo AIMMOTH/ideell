@@ -10,8 +10,7 @@ import eu.ideell.api.service.Products;
 import eu.ideell.api.service.StoreSearch;
 import se.cewebab.stockholm.appengine.Image;
 import se.cewebab.stockholm.appengine.ImageImpl;
-import se.cewebab.stockholm.appengine.Search;
-import se.cewebab.stockholm.appengine.SearchImpl;
+import se.cewebab.stockholm.appengine.SearchService;
 import se.cewebab.stockholm.appengine.SystemProperties;
 import se.cewebab.stockholm.auth0.Auth0;
 import se.cewebab.stockholm.bigquery.BigQueryIntegration;
@@ -39,7 +38,7 @@ public class TestJerseyDefaultConfig extends JerseyDefaultConfig {
         bind(TestBigQueryImpl.class).to(BigQueryIntegration.class);
 
         bind(ImageImpl.class).to(Image.class);
-        bind(SearchImpl.class).to(Search.class);
+        bindAsContract(SearchService.class);
         bind(Products.class).to(Products.class);
         bind(StoreSearch.class).to(StoreSearch.class);
       }

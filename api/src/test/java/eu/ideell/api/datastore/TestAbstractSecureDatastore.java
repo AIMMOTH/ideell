@@ -9,13 +9,10 @@ import org.junit.Test;
 
 import com.googlecode.objectify.Key;
 
-import eu.ideell.api.datastore.AbstractSecureDatastore;
-import eu.ideell.api.datastore.Auth0UserInfo;
 import eu.ideell.api.datastore.entity.Admin;
 import eu.ideell.api.datastore.entity.AdminParent;
 import eu.ideell.api.datastore.entity.Customer;
-import eu.ideell.api.datastore.entity.CustomerParent;
-import eu.ideell.api.datastore.entity.DepartmentParent;
+import eu.ideell.api.datastore.entity.Department;
 import eu.ideell.api.datastore.entity.User;
 import eu.ideell.api.datastore.entity.UserInvitation;
 import eu.ideell.api.datastore.entity.UserParent;
@@ -90,16 +87,15 @@ public class TestAbstractSecureDatastore extends TestJersey {
     final String departmentName = "department name";
     final String subject = "auth0 id";
 
-    final Key<CustomerParent> customerParentKey = datastore.loadCustomerOrCreate(customerName);
-    final Key<DepartmentParent> departmentParentKey = datastore.loadDepartmentOrCreate(customerParentKey, departmentName);
+    final Key<Customer> customerParentKey = datastore.loadCustomerOrCreate(customerName);
+    final Key<Department> departmentParentKey = datastore.loadDepartmentOrCreate(customerParentKey, departmentName);
     final Key<UserParent> userParentKey = Key.create(departmentParentKey, UserParent.class, subject);
 
     final Supplier<Auth0UserInfo> getInfo = () -> new Auth0UserInfo(subject, "not-used");
 
-    final UserParent parent = new UserParent(departmentParentKey, subject);
-    final User user = new User(userParentKey, getInfo.get());
+    final User user = new User(departmentParentKey, getInfo.get());
 
-    testSave().entities(user, parent).now();
+    testSave().entities(user).now();
 
     // When
     final User result = datastore.loadUserOrCreate(subject, getInfo, customerName, departmentName);
@@ -119,8 +115,8 @@ public class TestAbstractSecureDatastore extends TestJersey {
     final String subject = "auth0 id";
     final Supplier<Auth0UserInfo> getInfo = () -> new Auth0UserInfo(subject, "not-used");
 
-    final Key<CustomerParent> customerParentKey = datastore.loadCustomerOrCreate(customerName);
-    final Key<DepartmentParent> departmentParentKey = datastore.loadDepartmentOrCreate(customerParentKey, departmentName);
+    final Key<Customer> customerParentKey = datastore.loadCustomerOrCreate(customerName);
+    final Key<Department> departmentParentKey = datastore.loadDepartmentOrCreate(customerParentKey, departmentName);
 
     final Customer customer = testLoad(Key.create(customerParentKey, Customer.class, customerName));
     customer.setInvitationMandatoryForNewUsers(true);
@@ -148,8 +144,8 @@ public class TestAbstractSecureDatastore extends TestJersey {
     final String invitationEmail = "user@email.com";
     final Supplier<Auth0UserInfo> getInfo = () -> new Auth0UserInfo(subject, invitationEmail);
 
-    final Key<CustomerParent> customerParentKey = datastore.loadCustomerOrCreate(customerName);
-    final Key<DepartmentParent> departmentParentKey = datastore.loadDepartmentOrCreate(customerParentKey, departmentName);
+    final Key<Customer> customerParentKey = datastore.loadCustomerOrCreate(customerName);
+    final Key<Department> departmentParentKey = datastore.loadDepartmentOrCreate(customerParentKey, departmentName);
     final UserInvitation invitation = new UserInvitation(invitationEmail);
 
     final Customer customer = testLoad(Key.create(customerParentKey, Customer.class, customerName));

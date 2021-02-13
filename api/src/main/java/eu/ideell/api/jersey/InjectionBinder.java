@@ -7,6 +7,8 @@ import javax.ws.rs.ext.Provider;
 
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
+import com.google.appengine.api.search.SearchService;
+
 import eu.ideell.api.datastore.SecureDatastoreImpl;
 import eu.ideell.api.factory.BigQueryFactory;
 import eu.ideell.api.factory.SettingsFactory;
@@ -20,8 +22,6 @@ import eu.ideell.api.service.StoreSearch;
 import eu.ideell.api.service.StoreSheets;
 import se.cewebab.stockholm.appengine.Image;
 import se.cewebab.stockholm.appengine.ImageImpl;
-import se.cewebab.stockholm.appengine.Search;
-import se.cewebab.stockholm.appengine.SearchImpl;
 import se.cewebab.stockholm.appengine.SystemProperties;
 import se.cewebab.stockholm.auth0.Auth0;
 import se.cewebab.stockholm.bigquery.BigQueryIntegration;
@@ -60,7 +60,7 @@ public class InjectionBinder extends AbstractBinder {
     bindFactory(EmailFactory.class).to(Email.class);
 
     bind(ImageImpl.class).to(Image.class);
-    bind(SearchImpl.class).to(Search.class);
+    bindAsContract(SearchService.class);
     bindAsContract(Products.class);
     bindAsContract(StoreSearch.class);
     bindAsContract(StoreSheets.class);

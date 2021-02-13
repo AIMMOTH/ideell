@@ -22,14 +22,14 @@ public class User {
   @Id
   private String userName;
   @Parent
-  private Key<UserParent> userParent;
+  private Key<Department> userParent;
   @Index
   private final Date created = new Date();
   private final Date updated = new Date();
   private boolean active = true;
   private Auth0UserInfo userInfo;
 
-  public User(final Key<UserParent> key, final Auth0UserInfo userInfo) {
+  public User(final Key<Department> key, final Auth0UserInfo userInfo) {
     this.userName = key.getName();
     this.userParent = key;
     this.userInfo = userInfo;

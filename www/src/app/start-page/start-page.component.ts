@@ -13,8 +13,8 @@ export class StartPageComponent implements OnInit {
   constructor(translate: TranslateService, analytics: AnalyticsService) {
     analytics.behaviour('start-page');
     translate.addLangs(['en', 'sv']);
-    translate.setDefaultLang('sv');
-    translate.use('sv');
+    translate.setDefaultLang('en');
+    translate.use('en');
   }
 
   ngOnInit(): void {

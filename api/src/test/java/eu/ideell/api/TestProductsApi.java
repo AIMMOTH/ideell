@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import com.googlecode.objectify.Key;
 
-import eu.ideell.api.datastore.entity.CustomerParent;
-import eu.ideell.api.datastore.entity.DepartmentParent;
+import eu.ideell.api.datastore.entity.Customer;
+import eu.ideell.api.datastore.entity.Department;
 import eu.ideell.api.jersey.TestJersey;
 import eu.ideell.api.service.model.Product;
 import eu.ideell.api.service.model.ProductRequest;
@@ -58,8 +58,8 @@ public class TestProductsApi extends TestJersey {
     final StoreSearchResponse searchResult = super.postUnauthenticated("public/search", search, StoreSearchResponse.class);
 
     // Then
-    final Key<CustomerParent> customer = Key.create(CustomerParent.class, "default");
-    final Key<DepartmentParent> department = Key.create(customer, DepartmentParent.class, "default");
+    final Key<Customer> customer = Key.create(Customer.class, "default");
+    final Key<Department> department = Key.create(customer, Department.class, "default");
     final Key<Product> key = Key.create(department, Product.class, id);
     final Product result = testLoad(key);
 

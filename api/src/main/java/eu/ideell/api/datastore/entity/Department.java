@@ -21,15 +21,15 @@ public class Department {
   @Id
   private String departmentName;
   @Parent
-  private Key<DepartmentParent> departmentParent;
+  private Key<Customer> parent;
   @Index
   private final Date created = new Date();
   private String name;
   private boolean active;
 
-  public Department(final Key<CustomerParent> customer, final String departmentName) {
+  public Department(final Key<Customer> customer, final String departmentName) {
     this.departmentName = departmentName;
-    departmentParent = Key.create(customer, DepartmentParent.class, departmentName);
+    this.parent = customer;
   }
 
 }

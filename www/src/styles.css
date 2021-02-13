@@ -5,22 +5,64 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Permanent Marker', cursive !important;
+  font-family: 'Poiret One', cursive !important;
   font-weight: 1000 !important;
-  background: linear-gradient(#fbf9c5, #f7f5b0);
-  color: #493c3c;
+  background: #fefdec;
+  color: #91b867;
 }
 
 p {
   font-family: 'Open Sans', sans-serif;
-  color: #493c3c;
-  ;
+  color: #666666;
 }
 
+.bold {
+  font-weight: 1000;
+  font-family: 'Poiret One', cursive !important;
+  color: #91b867;
+}
+.underlined {
+  font-weight: 550;
+  text-decoration: underline;
+  font-family: 'Poiret One', cursive !important;
+  color: #91b867;
+}
 .container {
   margin-left: auto;
   margin-right: auto;
   max-width: 1600px;
+}
+.standard-panel {
+  box-shadow: 5px 5px 5px 1px gray;
+  border-radius: 20px;
+  margin: 5vh;
+  padding: 10vh;
+  font-size: 24px;
+  line-height: 1.6;
+}
+.CTA-wrapper {
+  text-align: center;
+}
+.CTA-button {
+  font-size: 32px;
+  border-style: none;
+  border-radius: 5px;
+  padding: 20px;
+  color: #91b867;
+  outline: none;
+  box-shadow: 2px 2px 2px 1px gray;
+  background: #fafafa;
+}
+.CTA-button:hover {
+  background: #f1f1f1;
+}
+.CTA-button:active {
+  background: #f1f1f1;
+  box-shadow: 1px 1px 1px 1px gray;
+  transform: translateY(4px);
+}
+button:focus {
+  outline:none;
 }
 
 .logo {
@@ -30,6 +72,10 @@ p {
 
 .center {
   text-align: center;
+}
+
+.select-language {
+  cursor: pointer;
 }
 
 .item-image {
@@ -43,6 +89,8 @@ body {
 }
 
 body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  color: #666666;
 }

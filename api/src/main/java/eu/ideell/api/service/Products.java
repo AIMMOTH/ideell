@@ -16,17 +16,16 @@ import com.googlecode.objectify.Key;
 import com.googlecode.objectify.LoadResult;
 
 import eu.ideell.api.datastore.SecureDatastoreImpl;
-import eu.ideell.api.datastore.entity.CustomerParent;
-import eu.ideell.api.datastore.entity.DepartmentParent;
+import eu.ideell.api.datastore.entity.Customer;
+import eu.ideell.api.datastore.entity.Department;
 import eu.ideell.api.datastore.entity.User;
-import eu.ideell.api.datastore.entity.UserParent;
 import eu.ideell.api.jaxrs.UserPrincipal;
 import eu.ideell.api.service.model.BigQueryProduct;
 import eu.ideell.api.service.model.Product;
 import eu.ideell.api.service.model.ProductRequest;
 import eu.ideell.api.service.model.ProductResource;
 import se.cewebab.stockholm.appengine.DocumentBuilder;
-import se.cewebab.stockholm.appengine.Search;
+import se.cewebab.stockholm.appengine.SearchService;
 import se.cewebab.stockholm.bigquery.BigQueryIntegration;
 import se.cewebab.stockholm.email.Email;
 import se.cewebab.stockholm.util.Log;
@@ -41,15 +40,15 @@ public class Products {
   @Inject
   private SecureDatastoreImpl datastore;
   @Inject
-  private Search search;
+  private SearchService search;
   @Inject
   private BigQueryIntegration bigQuery;
   @Inject
   private Email email;
 
   public Optional<ProductResource> get(final String customerName, final String departmentName, final long productId) {
-    final Key<CustomerParent> customer = Key.create(CustomerParent.class, customerName);
-    final Key<DepartmentParent> department = Key.create(customer, DepartmentParent.class, departmentName);
+    final Key<Customer> customer = Key.create(Customer.class, customerName);
+    final Key<Department> department = Key.create(customer, Department.class, departmentName);
     final Key<Product> key = Key.create(department, Product.class, productId);
 
     return Optional.of(datastore.loadUnauthorized(key))
@@ -61,19 +60,18 @@ public class Products {
 
   public long create(final UserPrincipal principal, final ProductRequest model) {
     final User user = principal.getUser();
-    final Key<UserParent> parent = user.getUserParent();
-    final Key<DepartmentParent> department = parent.getParent();
-    final Key<CustomerParent> customer = department.getParent();
+    final Key<Department> department = user.getUserParent();
+    final Key<Customer> customer = department.getParent();
 
     final Product entity = new Product(user, model);
-    final long id = datastore.saveEntityAuthorized(user, entity).now().getId();
+    final long id = datastore.saveDepartmentEntityAuthorized(user, entity).now().getId();
     final BigQueryProduct bigQueryProduct = new BigQueryProduct(principal.getUser(), entity);
 
     final DocumentBuilder document = new DocumentBuilder(id, Locale.FRANCE)
       .facet("version", "v2")
       .facetAndField("customer", customer.getName())
       .facetAndField("department", department.getName())
-      .facetAndField("user", parent.getName())
+      .facetAndField("user", user.getUserName())
 
       .field("documentUpdated", new Date())
       .field("name", model.getName())

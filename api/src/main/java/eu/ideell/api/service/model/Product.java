@@ -10,7 +10,7 @@ import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Parent;
 
-import eu.ideell.api.datastore.entity.DepartmentParent;
+import eu.ideell.api.datastore.entity.Department;
 import eu.ideell.api.datastore.entity.User;
 import eu.ideell.api.type.ProductCategory;
 import lombok.Data;
@@ -21,12 +21,12 @@ import se.cewebab.stockholm.appengine.SecureEntity;
 @Data
 @Entity
 @NoArgsConstructor
-public class Product implements SecureEntity<DepartmentParent> {
+public class Product implements SecureEntity<Department> {
 
   @Id
   private Long productId;
   @Parent
-  private Key<DepartmentParent> departmentParent;
+  private Key<Department> departmentParent;
   @Index
   private Date created = new Date();
   private String creatorUserName;
@@ -46,8 +46,9 @@ public class Product implements SecureEntity<DepartmentParent> {
   }
 
   @Override
-  public void setParent(final Key<DepartmentParent> parent) {
-    this.departmentParent = parent;
+  public Key<Department> getSecureParent() {
+    return departmentParent;
   }
+
 
 }

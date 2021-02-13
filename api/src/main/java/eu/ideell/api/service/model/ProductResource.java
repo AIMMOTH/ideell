@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 
 import com.googlecode.objectify.Key;
 
-import eu.ideell.api.datastore.entity.DepartmentParent;
+import eu.ideell.api.datastore.entity.Department;
 import eu.ideell.api.type.ProductCategory;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +29,7 @@ public class ProductResource {
   private String imageUrl;
 
   public ProductResource(final Product product) {
-    final Key<DepartmentParent> departmentParent = product.getDepartmentParent();
+    final Key<Department> departmentParent = product.getDepartmentParent();
     this.customer = departmentParent.getParent().getName();
     this.department = departmentParent.getName();
     this.productId = product.getProductId();

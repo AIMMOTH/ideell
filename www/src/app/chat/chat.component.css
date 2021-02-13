@@ -1,0 +1,14 @@
+
+.floating-chat {
+  position: fixed;
+  top: 10vh;
+  right: 0px;
+  padding: 10px;
+  background: #fafafa;
+}
+ul {
+  padding: 0px;
+}
+li {
+  list-style: none;
+}

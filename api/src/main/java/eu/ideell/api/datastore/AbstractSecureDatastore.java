@@ -18,12 +18,9 @@ import eu.ideell.api.datastore.entity.Admin;
 import eu.ideell.api.datastore.entity.AdminInvitation;
 import eu.ideell.api.datastore.entity.AdminParent;
 import eu.ideell.api.datastore.entity.Customer;
-import eu.ideell.api.datastore.entity.CustomerParent;
 import eu.ideell.api.datastore.entity.Department;
-import eu.ideell.api.datastore.entity.DepartmentParent;
 import eu.ideell.api.datastore.entity.User;
 import eu.ideell.api.datastore.entity.UserInvitation;
-import eu.ideell.api.datastore.entity.UserParent;
 import se.cewebab.stockholm.util.Log;
 import se.cewebab.stockholm.util.Monad;
 
@@ -62,8 +59,8 @@ public abstract class AbstractSecureDatastore {
   }
 
   User loadUserOrCreate(final String subject, final Supplier<Auth0UserInfo> getUserInfo, final String customerName, final String departmentName) throws NotFoundException {
-    final Key<CustomerParent> customer = loadCustomerOrCreate(customerName);
-    final Key<DepartmentParent> department = loadDepartmentOrCreate(customer, departmentName);
+    final Key<Customer> customer = loadCustomerOrCreate(customerName);
+    final Key<Department> department = loadDepartmentOrCreate(customer, departmentName);
     return Monad.monad(createUserKey(department, subject))
         .map(key -> load().key(key).now())
         .map(entity -> {
@@ -77,15 +74,9 @@ public abstract class AbstractSecureDatastore {
               }
             }
             log.log("Creating user with subject " + userInfo.getSub());
-            return Monad.monad(new UserParent(department, userInfo.getSub()))
-                .map(parent -> save().entity(parent).now())
-                .map(key -> {
-                  final User user = new User(key, userInfo);
-                  save().entity(user).now();
-                  return user;
-                })
-                .get()
-                ;
+            final User user = new User(department, userInfo);
+            save().entity(user).now();
+            return user;
           } else {
             return entity;
           }
@@ -94,36 +85,34 @@ public abstract class AbstractSecureDatastore {
         ;
   }
 
-  Key<CustomerParent> loadCustomerOrCreate(final String customerName) {
-    final Key<CustomerParent> key = Key.create(CustomerParent.class, customerName);
+  Key<Customer> loadCustomerOrCreate(final String customerName) {
+    final Key<Customer> key = Key.create(Customer.class, customerName);
     if (Objects.nonNull(load().key(key).now())) {
       return key;
     } else {
-      final CustomerParent parent = new CustomerParent(customerName);
       final Customer customer = new Customer(customerName);
-      save().entities(parent, customer).now();
+      save().entities(customer).now();
       return key;
     }
   }
 
-  Key<DepartmentParent> loadDepartmentOrCreate(final Key<CustomerParent> customer, final String departmentName) {
-    final Key<DepartmentParent> key = createDepartmentKey(customer, departmentName);
+  Key<Department> loadDepartmentOrCreate(final Key<Customer> customer, final String departmentName) {
+    final Key<Department> key = createDepartmentKey(customer, departmentName);
     if (Objects.nonNull(load().key(key).now())) {
       return key;
     } else {
-      final DepartmentParent parent = new DepartmentParent(customer, departmentName);
       final Department department = new Department(customer, departmentName);
-      save().entities(parent, department).now();
+      save().entities(department).now();
       return key;
     }
   }
 
-  private Key<DepartmentParent> createDepartmentKey(final Key<CustomerParent> customer, final String name) {
-    return Key.create(customer, DepartmentParent.class, name);
+  private Key<Department> createDepartmentKey(final Key<Customer> customer, final String name) {
+    return Key.create(customer, Department.class, name);
   }
 
-  private Key<User> createUserKey(final Key<DepartmentParent> department, final String name) {
-    return Key.create(Key.create(department, UserParent.class, name), User.class, name);
+  private Key<User> createUserKey(final Key<Department> department, final String name) {
+    return Key.create(department, User.class, name);
   }
 
   protected Saver save() {

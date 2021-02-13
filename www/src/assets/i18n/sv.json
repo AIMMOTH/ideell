@@ -1,8 +1,12 @@
 {
 	"show": "Visa",
 	"start-page": {
+		"banner": {
+			"h1":"Ideell",
+			"h2": "Ideell social media"
+		},
 		"h1": {
-			"p": "Mallprojekt. Klona, skapa."
+			"p": "Ideell social media."
 		}
 	}
 }

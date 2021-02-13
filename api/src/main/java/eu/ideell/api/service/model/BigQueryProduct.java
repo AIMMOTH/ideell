@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.googlecode.objectify.Key;
 
-import eu.ideell.api.datastore.entity.DepartmentParent;
+import eu.ideell.api.datastore.entity.Department;
 import eu.ideell.api.datastore.entity.User;
 import lombok.Data;
 import se.cewebab.stockholm.bigquery.Tools;
@@ -30,7 +30,7 @@ public class BigQueryProduct {
   public BigQueryProduct(final User user, final Product entity) {
     productId = entity.getProductId();
 
-    final Key<DepartmentParent> parent = user.getUserParent().getParent();
+    final Key<Department> parent = user.getUserParent().getParent();
     departmentName = parent.getName();
     customerName = parent.getParent().getName();
     creatorUserName = user.getUserName();

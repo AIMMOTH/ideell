@@ -18,9 +18,9 @@ public class UserParent {
   @Id
   private String userName;
   @Parent
-  private Key<DepartmentParent> departmentParent;
+  private Key<Department> departmentParent;
 
-  public UserParent(final Key<DepartmentParent> parent, final String userName) {
+  public UserParent(final Key<Department> parent, final String userName) {
     departmentParent = parent;
     this.userName = userName;
   }
