@@ -4,8 +4,8 @@ import java.nio.file.attribute.UserPrincipal;
 
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
-import eu.ideell.api.datastore.SecureDatastoreImpl;
 import eu.ideell.api.factory.UserPrincipalFactory;
+import eu.ideell.api.mongodb.SecureDatastoreImpl;
 import eu.ideell.api.service.Products;
 import eu.ideell.api.service.StoreSearch;
 import se.cewebab.stockholm.appengine.Image;

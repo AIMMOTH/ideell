@@ -1,14 +1,14 @@
 package eu.ideell.api.jaxrs;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import eu.ideell.api.type.ProductCategory;
 
-@Path("public/product-categories")
+@Controller("public/product-categories")
 public class ProductCategoriesApi {
 
-  @GET
+  @GetMapping
   public ProductCategory[] get() {
     return ProductCategory.values();
   }

@@ -1,4 +1,4 @@
-package eu.ideell.api.datastore;
+package eu.ideell.api.mongodb;
 
 import java.util.Date;
 

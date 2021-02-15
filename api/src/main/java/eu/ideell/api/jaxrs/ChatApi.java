@@ -1,19 +1,19 @@
 package eu.ideell.api.jaxrs;
 
-import javax.inject.Inject;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import eu.ideell.api.service.Chat;
 import eu.ideell.api.service.model.ChatMessage;
 
-@Path("public/chat")
+@Controller("public/chat")
 public class ChatApi {
 
-  @Inject
+  @Autowired
   private Chat chat;
 
-  @POST
+  @PostMapping
   public void post(final ChatMessage message) {
     chat.push(message);
   }

@@ -1,8 +1,6 @@
 package eu.ideell.api.factory;
 
-import javax.inject.Inject;
-
-import org.glassfish.hk2.api.Factory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import se.cewebab.stockholm.appengine.SystemProperties;
 import se.cewebab.stockholm.bigquery.BigQueryDevelopmentImpl;
@@ -12,9 +10,9 @@ import se.cewebab.stockholm.util.Settings;
 
 public class BigQueryFactory implements Factory<BigQueryIntegration> {
 
-  @Inject
+  @Autowired
   private SystemProperties system;
-  @Inject
+  @Autowired
   private Settings settings;
 
   @Override

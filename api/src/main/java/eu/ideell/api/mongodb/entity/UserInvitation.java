@@ -1,24 +1,22 @@
-package eu.ideell.api.datastore.entity;
+package eu.ideell.api.mongodb.entity;
 
 import java.util.Date;
 
-import com.googlecode.objectify.annotation.Cache;
-import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
-import com.googlecode.objectify.annotation.Index;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Cache
 @Data
-@Entity
+@Document
 @NoArgsConstructor
 public class UserInvitation {
 
   @Id
   private String email;
-  @Index
+  @Indexed
   private Date created = new Date();
 
   public UserInvitation(final String invitedEmailAddress) {

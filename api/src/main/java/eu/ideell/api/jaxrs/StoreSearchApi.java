@@ -1,23 +1,20 @@
 package eu.ideell.api.jaxrs;
 
-import javax.inject.Inject;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import eu.ideell.api.service.StoreSearch;
 import eu.ideell.api.service.model.StoreSearchRequest;
 import eu.ideell.api.service.model.StoreSearchResponse;
 
-@Path("public/search")
+@Controller("public/search")
 public class StoreSearchApi {
 
-  @Inject
+  @Autowired
   private StoreSearch service;
 
-  @POST
-  @Produces(MediaType.APPLICATION_JSON)
+  @PostMapping
   public StoreSearchResponse post(final StoreSearchRequest request) {
     return new StoreSearchResponse(service.create(request));
   }

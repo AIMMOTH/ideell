@@ -1,24 +1,20 @@
-package eu.ideell.api.datastore.entity;
+package eu.ideell.api.mongodb.entity;
 
 import java.util.Date;
 
-import com.googlecode.objectify.annotation.Cache;
-import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
-import com.googlecode.objectify.annotation.Index;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Cache
 @Data
-@Entity
+@Document
 @NoArgsConstructor
 public class Customer {
 
   @Id
   private String customerName;
-  @Index
   private final Date created = new Date();
   private boolean active = true;
   private boolean invitationMandatoryForNewUsers = false;

@@ -3,32 +3,28 @@ package eu.ideell.api.jaxrs;
 import java.util.Optional;
 
 import javax.annotation.security.RolesAllowed;
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.SecurityContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import eu.ideell.api.service.Products;
 import eu.ideell.api.service.model.ProductRequest;
 import eu.ideell.api.service.model.ProductResource;
 
-@Path("products")
+@Controller("products")
 public class ProductsApi {
 
-  @Inject
+  @Autowired
   private Products products;
 
-  @GET
-  @Path("{customerName}/{departmentName}/{productId}")
-  @Produces(MediaType.APPLICATION_JSON)
-  public ProductResource get(@PathParam("customerName") final String customerName,
-      @PathParam("departmentName") final String departmentName,
-      @PathParam("productId") final long productId) {
+  @GetMapping("{customerName}/{departmentName}/{productId}")
+  public ProductResource get(@PathVariable("customerName") final String customerName,
+      @PathVariable("departmentName") final String departmentName,
+      @PathVariable("productId") final long productId) {
 
     final Optional<ProductResource> optional = products.get(customerName, departmentName, productId);
     if (optional.isPresent()) {
@@ -38,7 +34,7 @@ public class ProductsApi {
     }
   }
 
-  @POST
+  @PostMapping
   @RolesAllowed({"admin", "user"})
   public long post(@Context final SecurityContext context, final ProductRequest model) {
     return products.create((UserPrincipal) context.getUserPrincipal(), model);

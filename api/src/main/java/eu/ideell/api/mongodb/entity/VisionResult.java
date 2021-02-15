@@ -1,24 +1,24 @@
-package eu.ideell.api.datastore.entity;
+package eu.ideell.api.mongodb.entity;
 
 import java.util.Date;
 import java.util.List;
 
-import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
-import com.googlecode.objectify.annotation.Index;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import se.cewebab.stockholm.vision.model.Result;
 
 @Data
-@Entity
+@Document
 @NoArgsConstructor
 public class VisionResult {
 
   @Id
   private Long visionResultId;
-  @Index
+  @Indexed
   private Date created = new Date();
   private List<Result> results;
 

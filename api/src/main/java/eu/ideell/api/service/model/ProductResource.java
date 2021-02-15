@@ -2,9 +2,7 @@ package eu.ideell.api.service.model;
 
 import javax.annotation.Nonnull;
 
-import com.googlecode.objectify.Key;
-
-import eu.ideell.api.datastore.entity.Department;
+import eu.ideell.api.mongodb.entity.Product;
 import eu.ideell.api.type.ProductCategory;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,13 +27,12 @@ public class ProductResource {
   private String imageUrl;
 
   public ProductResource(final Product product) {
-    final Key<Department> departmentParent = product.getDepartmentParent();
-    this.customer = departmentParent.getParent().getName();
-    this.department = departmentParent.getName();
+//    this.customer = departmentParent.getParent().getName();
+    this.department = product.getDepartmentName();
     this.productId = product.getProductId();
     this.name = product.getName();
     this.cost = product.getCost();
-    this.description = product.getDescription().getValue();
+    this.description = product.getDescription();
     this.category = product.getCategory();
     this.imageUrl = product.getImageUrl();
   }

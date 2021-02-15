@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.api.services.sheets.v4.model.ValueRange;
 import com.google.common.collect.Lists;
@@ -19,7 +19,7 @@ import se.cewebab.stockholm.sheets.Sheets;
 
 public class StoreSheets {
 
-  @Inject
+  @Autowired
   private Sheets sheets;
 
   public SheetsResponse get() throws GeneralSecurityException, IOException, URISyntaxException, ParseException {

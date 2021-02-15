@@ -2,7 +2,7 @@ package eu.ideell.api.jaxrs;
 
 import java.security.Principal;
 
-import eu.ideell.api.datastore.entity.User;
+import eu.ideell.api.mongodb.entity.User;
 import lombok.Data;
 
 @Data

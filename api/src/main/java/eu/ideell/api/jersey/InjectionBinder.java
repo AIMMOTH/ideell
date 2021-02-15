@@ -9,11 +9,11 @@ import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
 import com.google.appengine.api.search.SearchService;
 
-import eu.ideell.api.datastore.SecureDatastoreImpl;
 import eu.ideell.api.factory.BigQueryFactory;
 import eu.ideell.api.factory.SettingsFactory;
 import eu.ideell.api.factory.SheetsFactory;
 import eu.ideell.api.factory.UserPrincipalFactory;
+import eu.ideell.api.mongodb.SecureDatastoreImpl;
 import eu.ideell.api.service.Chat;
 import eu.ideell.api.service.ProductExcel;
 import eu.ideell.api.service.ProductPdf;

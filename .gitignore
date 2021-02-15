@@ -1,14 +1,8 @@
 
 settings.json
 service-account-key.p12
-api/src/main/webapp/favicon.ico
-api/src/main/webapp/*.html
-api/src/main/webapp/*.css
-api/src/main/webapp/*.js
-api/src/main/webapp/*.json
-api/src/main/webapp/*.manifest
-api/src/main/webapp/*.txt
-api/src/main/webapp/assets/**
+api/src/main/resources/static/**
+db/**
 
 *.p12
 Development.json

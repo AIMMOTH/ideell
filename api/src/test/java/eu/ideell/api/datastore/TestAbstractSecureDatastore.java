@@ -9,14 +9,16 @@ import org.junit.Test;
 
 import com.googlecode.objectify.Key;
 
-import eu.ideell.api.datastore.entity.Admin;
-import eu.ideell.api.datastore.entity.AdminParent;
-import eu.ideell.api.datastore.entity.Customer;
-import eu.ideell.api.datastore.entity.Department;
-import eu.ideell.api.datastore.entity.User;
-import eu.ideell.api.datastore.entity.UserInvitation;
-import eu.ideell.api.datastore.entity.UserParent;
 import eu.ideell.api.jersey.TestJersey;
+import eu.ideell.api.mongodb.AbstractSecureDatastore;
+import eu.ideell.api.mongodb.Auth0UserInfo;
+import eu.ideell.api.mongodb.entity.Admin;
+import eu.ideell.api.mongodb.entity.AdminParent;
+import eu.ideell.api.mongodb.entity.Customer;
+import eu.ideell.api.mongodb.entity.Department;
+import eu.ideell.api.mongodb.entity.User;
+import eu.ideell.api.mongodb.entity.UserInvitation;
+import eu.ideell.api.mongodb.entity.UserParent;
 
 public class TestAbstractSecureDatastore extends TestJersey {
 

@@ -8,10 +8,10 @@ import org.junit.Test;
 
 import com.googlecode.objectify.Key;
 
-import eu.ideell.api.datastore.entity.Customer;
-import eu.ideell.api.datastore.entity.Department;
 import eu.ideell.api.jersey.TestJersey;
-import eu.ideell.api.service.model.Product;
+import eu.ideell.api.mongodb.entity.Customer;
+import eu.ideell.api.mongodb.entity.Department;
+import eu.ideell.api.mongodb.entity.Product;
 import eu.ideell.api.service.model.ProductRequest;
 import eu.ideell.api.service.model.StoreSearchRequest;
 import eu.ideell.api.service.model.StoreSearchResponse;

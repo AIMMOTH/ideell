@@ -6,21 +6,22 @@ import java.security.GeneralSecurityException;
 import java.text.ParseException;
 
 import javax.annotation.security.RolesAllowed;
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import eu.ideell.api.service.StoreSheets;
 import eu.ideell.api.service.model.SheetsResponse;
 
-@Path("sheets")
+@Controller("sheets")
 @RolesAllowed("user")
 public class StoreSheetsApi {
 
-  @Inject
+  @Autowired
   private StoreSheets sheets;
 
-  @GET
+  @GetMapping
   public SheetsResponse get() throws GeneralSecurityException, IOException, URISyntaxException, ParseException {
     return sheets.get();
   }

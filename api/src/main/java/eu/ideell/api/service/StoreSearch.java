@@ -4,17 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.inject.Inject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.index.Index;
 
-import com.google.appengine.api.search.Index;
 import com.google.appengine.api.search.QueryOptions;
 import com.google.common.collect.Maps;
-import com.googlecode.objectify.Key;
 
-import eu.ideell.api.datastore.SecureDatastoreImpl;
-import eu.ideell.api.datastore.entity.Customer;
-import eu.ideell.api.datastore.entity.Department;
-import eu.ideell.api.service.model.Product;
+import eu.ideell.api.mongodb.SecureDatastoreImpl;
+import eu.ideell.api.mongodb.entity.Customer;
+import eu.ideell.api.mongodb.entity.Department;
+import eu.ideell.api.mongodb.entity.Product;
 import eu.ideell.api.service.model.ProductResource;
 import eu.ideell.api.service.model.StoreSearchRequest;
 import se.cewebab.stockholm.appengine.SearchService;
@@ -22,9 +21,9 @@ import se.cewebab.stockholm.util.Monad;
 
 public class StoreSearch {
 
-  @Inject
+  @Autowired
   private SearchService search;
-  @Inject
+  @Autowired
   private SecureDatastoreImpl datastore;
 
   public List<ProductResource> create(final StoreSearchRequest request) {

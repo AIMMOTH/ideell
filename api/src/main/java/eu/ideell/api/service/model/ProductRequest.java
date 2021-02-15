@@ -2,6 +2,7 @@ package eu.ideell.api.service.model;
 
 import javax.annotation.Nonnull;
 
+import eu.ideell.api.mongodb.entity.Product;
 import eu.ideell.api.type.ProductCategory;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,7 @@ public class ProductRequest {
   public ProductRequest(final Product product) {
     this.name = product.getName();
     this.cost = product.getCost();
-    this.description = product.getDescription().getValue();
+    this.description = product.getDescription();
     this.category = product.getCategory();
     this.imageUrl = product.getImageUrl();
   }
