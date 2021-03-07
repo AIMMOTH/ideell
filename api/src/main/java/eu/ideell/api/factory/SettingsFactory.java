@@ -3,9 +3,7 @@ package eu.ideell.api.factory;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import javax.inject.Inject;
-
-import org.glassfish.hk2.api.Factory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -18,9 +16,9 @@ import se.cewebab.stockholm.util.Settings;
 @NoArgsConstructor
 public class SettingsFactory implements Factory<Settings> {
 
-  @Inject
+  @Autowired
   private Log log;
-  @Inject
+  @Autowired
   private SystemProperties system;
 
   public SettingsFactory(final Log log, final SystemProperties system) {

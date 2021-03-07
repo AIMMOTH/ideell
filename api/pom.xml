@@ -30,6 +30,7 @@
     <guava.version>30.0-jre</guava.version>
     <auth0.version>3.8.2</auth0.version>
     <auth0.jwks.version>0.8.3</auth0.jwks.version>
+    <bigquery.version>1.90.0</bigquery.version>
     <sheets.version>v4-rev581-1.25.0</sheets.version>
 <!--     <mockito.version>1.10.19</mockito.version> -->
     <sendgrid.version>4.4.1</sendgrid.version>
@@ -70,6 +71,12 @@
     </dependency>
 
     <!-- Other -->
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-bigquery</artifactId>
+      <version>${bigquery.version}</version>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>com.google.apis</groupId>
       <artifactId>google-api-services-sheets</artifactId>
