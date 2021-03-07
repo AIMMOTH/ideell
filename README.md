@@ -1,29 +1,54 @@
-# README #
+# IDEELL SOCIAL MEDIA #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is root folder for Ideell's all services. Short description for subfolders
 
-### What is this repository for? ###
+* api - Spring Boot REST API using JSON. Security with JWT provided by Auth0
+* db - Local database folder for testing
+* doc - Documentation including graphic profile
+* www - 4 separate projects (Ideell start page and PWA apps for Vi, Konst, Kvitter)
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Local Setup ###
 
-### How do I get set up? ###
+Try the following short description of how to start your local environment
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+# Install Java 15, MongoDB, MariaDB, Eclipse/Intellij (install Lombok for Eclipse), Maven, Npm
+# Clone repo at https://github.com/AIMMOTH/ideell 
+# Obtain copy of Stockholm Boot (contact Aimmoth@Github) and install locally
+# Import Maven project
+# Set Stockholm Boot as dependency to Maven project
+# Create project for Ideell start page, Vi, Konst and Kvitter
+# Install Angular CLI in Vi, Konst and Kvitter (npm install -g @angular/cli)
+
+### Run Locally ###
+
+# Start MongoDB (in root folder, mongod --dbpath db)
+# Start backend in Eclipse/Intellij
+# Run you selected app with Angular Cli (ng serve)
+
+### Deploy ###
+
+# Copy start page into api/src/main/resources/static
+# Build Vi/Konst/Kvitter (ng --prod build)
+# Copy Vi/Konst/Kvitter build into api/src/main/resources/{app}
+# Make Backend build (mvn package)
+# Login to ElastX
+# Select correct environment
+# Upload build JAR-file (found in api/target)
 
 ### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
+* If you touch code, try to clean up and make it look better than before you started
+* If you create something new, use a well known name for main logic and package with same name for smaller objects
 
-### Who do I talk to? ###
+### What to work with ###
 
-* Repo owner or admin
-* Other community or team contact
+Use the following priority
+
+# Merge your PRs that are accepted
+# Check for PRs to review
+# Continue your features
+# Check for selected issues that are specified well enough for you to start work with
+
+### Halp! ###
+
+You can contact Aimmoth@github
