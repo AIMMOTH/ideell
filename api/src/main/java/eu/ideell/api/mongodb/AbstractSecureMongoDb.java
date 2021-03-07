@@ -19,7 +19,7 @@ import eu.ideell.api.mongodb.entity.UserInvitation;
 import eu.ideell.api.spring.UnauthorizedException;
 import se.cewebab.stockholm.util.Log;
 
-public abstract class AbstractSecureDatastore {
+public abstract class AbstractSecureMongoDb {
 
   @Autowired
   private MongoOperations operations;

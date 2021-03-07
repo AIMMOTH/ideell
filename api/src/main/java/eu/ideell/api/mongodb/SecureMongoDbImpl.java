@@ -16,17 +16,17 @@ import eu.ideell.api.mongodb.entity.Department;
 import eu.ideell.api.mongodb.entity.User;
 import eu.ideell.api.spring.UnauthorizedException;
 import lombok.NoArgsConstructor;
-import se.cewebab.stockholm.appengine.SecureDatastore;
-import se.cewebab.stockholm.appengine.SecureEntity;
 import se.cewebab.stockholm.auth0.Auth0;
+import se.cewebab.stockholm.mongodb.SecureEntity;
+import se.cewebab.stockholm.mongodb.SecureMongoDb;
 import se.cewebab.stockholm.util.Either;
 import se.cewebab.stockholm.util.Log;
 import se.cewebab.stockholm.util.Monad;
 import se.cewebab.stockholm.util.Settings;
 
 @NoArgsConstructor
-public class SecureDatastoreImpl extends AbstractSecureDatastore
-    implements SecureDatastore<Admin, User, Customer, Department> {
+public class SecureMongoDbImpl extends AbstractSecureMongoDb
+    implements SecureMongoDb<Admin, User, Customer, Department> {
 
   private static final Gson gson = new Gson();
 
@@ -88,9 +88,9 @@ public class SecureDatastoreImpl extends AbstractSecureDatastore
 
   @Override
   public <Entity extends SecureEntity, Id extends Object> Entity loadAuthorized(final User user, final Class<Entity> klass, final Id id) {
-    final Entity e = load(klass, id);
-    if (Objects.equals(user.getDepartmentName(), e.getSecureParent())) {
-      return e;
+    final Entity entity = load(klass, id);
+    if (Objects.equals(user.getCustomerName(), entity.getCustomerName()) && Objects.equals(user.getDepartmentName(), entity.getDepartmentName())) {
+      return entity;
     } else {
       throw new RuntimeException("");
     }
@@ -101,10 +101,10 @@ public class SecureDatastoreImpl extends AbstractSecureDatastore
     return Lists.newArrayList("Product");
   }
 
-//  public void deleteAsSystem(final Key<? extends Object> key) {
-//    log.warning("Deleting entity as system " + key);
-//    delete().key(key);
-//  }
+  public <Entity> void deleteAsSystem(final Entity entity) {
+    log.warning(String.format("Deleting entity as system %s", String.valueOf(entity)));
+    delete(entity);
+  }
 
 //  public <Entity> Result<Key<Entity>> saveEntityAsSystem(final Entity entity) {
 //    return save().entity(entity);
@@ -120,7 +120,7 @@ public class SecureDatastoreImpl extends AbstractSecureDatastore
 //    return null;
 //  }
   public <E extends SecureEntity> E saveAuthorized(final User user, final E entity) {
-    if (Objects.equals(user.getDepartmentName(), entity.getSecureParent())) {
+    if (Objects.equals(user.getCustomerName(), entity.getCustomerName()) && Objects.equals(user.getDepartmentName(), entity.getDepartmentName())) {
       return save(entity);
     } else {
       throw new UnauthorizedException();

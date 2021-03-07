@@ -1,0 +1,35 @@
+{
+	"Auth0": {
+		"Issuer": "https://ideell.eu.auth0.com/",
+		"JWK_Provider": "https://ideell.eu.auth0.com/"
+	},
+	"BigQuery": {
+		"Service_Account_Key": "/service-account-key.json",
+		"Dataset": "carls_dataset",
+		"Products_Table": "carls-products"
+	},
+	"Braintree": {
+		"Merchant_Id": "6kgmykwhhbdqcwbc",
+		"Public_Key": "5dw3sw5dtkfwrtpm",
+		"Private_Key": "046915b9ac8cbcc6d9a3e183dc0b021d"
+	},
+	"CSP": "metatags.io fonts.googleapis.com",
+	"CORS": [
+		"http://localhost:4200"
+	],
+	"Pusher": {
+		"App Id": "1126428",
+		"Key": "18692e0e009c67c79baf",
+		"Secret": "ca882acd6f5f97aef971"
+	},
+	"SendGrid": {
+		"API Key": ""
+	},
+	"System": {
+		"First_Email": "carl.emmoth@gmail.com"
+	},
+	"Sheets": {
+		"Service_Account_Key": "/service-account-key.p12",
+		"Email": ""
+	}
+}

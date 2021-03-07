@@ -2,6 +2,7 @@ package eu.ideell.api.mongodb.entity;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,15 +12,17 @@ import eu.ideell.api.service.model.ProductRequest;
 import eu.ideell.api.type.ProductCategory;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import se.cewebab.stockholm.appengine.SecureEntity;
+import se.cewebab.stockholm.mongodb.SecureEntity;
 
 @Data
 @Document
 @NoArgsConstructor
 public class Product implements SecureEntity {
 
-  @org.springframework.data.annotation.Id
+  @Id
   private Long productId;
+  @NonNull
+  private String customerName;
   @NonNull
   private String departmentName;
   @Indexed
@@ -39,11 +42,5 @@ public class Product implements SecureEntity {
     this.category = model.getCategory();
     this.imageUrl = model.getImageUrl();
   }
-
-  @Override
-  public String getSecureParent() {
-    return departmentName;
-  }
-
 
 }

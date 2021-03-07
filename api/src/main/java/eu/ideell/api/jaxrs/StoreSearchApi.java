@@ -15,7 +15,7 @@ public class StoreSearchApi {
   private StoreSearch service;
 
   @PostMapping
-  public StoreSearchResponse post(final StoreSearchRequest request) {
+  public StoreSearchResponse post(final StoreSearchRequest request) throws Exception {
     return new StoreSearchResponse(service.create(request));
   }
 }

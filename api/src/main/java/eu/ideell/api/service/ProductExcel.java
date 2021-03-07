@@ -6,14 +6,14 @@ import java.util.Optional;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import eu.ideell.api.mongodb.SecureDatastoreImpl;
+import eu.ideell.api.mongodb.SecureMongoDbImpl;
 import eu.ideell.api.mongodb.entity.Product;
 import se.cewebab.stockholm.excel.Excel;
 
 public class ProductExcel {
 
   @Autowired
-  private SecureDatastoreImpl datastore;
+  private SecureMongoDbImpl datastore;
   @Autowired
   private Excel excel;
 

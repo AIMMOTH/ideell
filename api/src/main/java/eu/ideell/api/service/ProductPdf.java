@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.vandeseer.easytable.structure.Row;
 import org.vandeseer.easytable.structure.Table.TableBuilder;
 
-import eu.ideell.api.mongodb.SecureDatastoreImpl;
+import eu.ideell.api.mongodb.SecureMongoDbImpl;
 import eu.ideell.api.mongodb.entity.Product;
 import se.cewebab.stockholm.pdf.PdfDocument;
 
 public class ProductPdf {
 
   @Autowired
-  private SecureDatastoreImpl datastore;
+  private SecureMongoDbImpl datastore;
   @Autowired
   private PdfDocument pdf;
 
