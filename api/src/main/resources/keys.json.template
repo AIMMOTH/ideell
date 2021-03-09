@@ -1,0 +1,35 @@
+{
+  "Auth0": {
+    "Issuer": "https://_.eu.auth0.com/",
+    "JWK_Provider": "https://_.eu.auth0.com/"
+  },
+  "BigQuery": {
+    "Service_Account_Key": "/path-to-google-service-acount-key.json",
+    "Dataset": "dataset_name",
+    "Table": "table-name"
+  },
+  "Braintree": {
+    "Merchant_Id": "",
+    "Public_Key": "",
+    "Private_Key": ""
+  },
+  "CSP": "metatags.io fonts.googleapis.com",
+  "CORS": [
+    "http://localhost:4200"
+  ],
+  "Pusher": {
+    "App Id": "",
+    "Key": "",
+    "Secret": ""
+  },
+  "SendGrid": {
+    "API Key": ""
+  },
+  "System": {
+    "First_Email": "_@_"
+  },
+  "Sheets": {
+    "Service_Account_Key": "/path-to-google-service-acount-key.p12",
+    "Email": ""
+  }
+}
