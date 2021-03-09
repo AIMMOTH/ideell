@@ -1,4 +1,5 @@
 
+keys.json
 settings.json
 service-account-key.p12
 api/src/main/resources/static/**
