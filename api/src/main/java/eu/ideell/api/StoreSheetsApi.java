@@ -1,4 +1,4 @@
-package eu.ideell.api.jaxrs;
+package eu.ideell.api;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

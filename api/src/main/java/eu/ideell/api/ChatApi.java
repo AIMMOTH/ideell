@@ -1,4 +1,4 @@
-package eu.ideell.api.jaxrs;
+package eu.ideell.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
