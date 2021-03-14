@@ -2,10 +2,9 @@ package eu.ideell.api.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 
 //@CrossOrigin("${cors}")
-@EnableCaching
+//@EnableCaching
 @SpringBootApplication
 public class IdeellApplication {
 

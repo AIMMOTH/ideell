@@ -2,18 +2,12 @@ package eu.ideell.api;
 
 import java.util.Optional;
 
-import javax.annotation.security.RolesAllowed;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import eu.ideell.api.mongodb.entity.User;
 import eu.ideell.api.service.Products;
-import eu.ideell.api.service.model.ProductRequest;
 import eu.ideell.api.service.model.ProductResource;
 
 @Controller("products")
@@ -35,11 +29,11 @@ public class ProductsApi extends AbstractApi {
     }
   }
 
-  @PostMapping
-  @RolesAllowed({"admin", "user"})
-  public long post(final ProductRequest model) throws Exception {
-    final User user = super.getUser(SecurityContextHolder.getContext().getAuthentication());
-    return products.create(user, model);
-  }
+//  @PostMapping
+//  @RolesAllowed({"admin", "user"})
+//  public long post(final ProductRequest model) throws Exception {
+//    final User user = super.getUser(SecurityContextHolder.getContext().getAuthentication());
+//    return products.create(user, model);
+//  }
 
 }

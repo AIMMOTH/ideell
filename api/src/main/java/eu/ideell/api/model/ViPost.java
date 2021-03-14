@@ -13,7 +13,8 @@ public class ViPost implements PostI {
     informative, discussion, joke, sarcasm, ironic
     ;
   }
-
+  private String ideellAccountId;
+  private Long viAccountId;
   private PostPurposeType type;
   private Date posted = new Date();
   private String textMax280Characters;

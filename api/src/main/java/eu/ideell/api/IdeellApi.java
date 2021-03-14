@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import eu.ideell.api.model.AccountI;
 import eu.ideell.api.model.AnalyticsAction;
-import eu.ideell.api.model.CommentI;
+import eu.ideell.api.model.CommentContext;
 import eu.ideell.api.model.Feedback;
 import eu.ideell.api.model.IdeellAccount;
-import eu.ideell.api.model.PostI;
+import eu.ideell.api.model.PostContext;
 import eu.ideell.api.model.ReplyToAccountRequest;
 import eu.ideell.api.model.ReplyToCommentRequest;
 import eu.ideell.api.model.ReplyToPostRequest;
@@ -62,12 +62,12 @@ public class IdeellApi {
   }
 
   @GetMapping("list-new-posts")
-  public List<PostI> getNewPosts() {
+  public List<PostContext> getNewPosts() {
     return service.getNewPosts();
   }
 
   @GetMapping("list-unaccepted-posts")
-  public List<PostI> getUnacceptedPosts() {
+  public List<PostContext> getUnacceptedPosts() {
     return service.getUnacceptedPosts();
   }
 
@@ -77,12 +77,12 @@ public class IdeellApi {
   }
 
   @GetMapping("list-new-comments")
-  public List<CommentI> getNewComments() {
+  public List<CommentContext> getNewComments() {
     return service.getNewComments();
   }
 
   @GetMapping("list-unaccepted-comments")
-  public List<CommentI> getUnacceptedComments() {
+  public List<CommentContext> getUnacceptedComments() {
     return service.getUnacceptedComments();
   }
 

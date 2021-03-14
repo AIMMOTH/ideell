@@ -14,6 +14,8 @@ public class ViComment implements CommentI {
     ;
 
   }
+  private String ideellAccountId;
+  private Long viAccountId;
   private CommentPurposeType purpose;
   private Date posted = new Date();
   private String textMax280Characters;

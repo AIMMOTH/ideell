@@ -4,10 +4,10 @@ import java.util.List;
 
 import eu.ideell.api.model.AccountI;
 import eu.ideell.api.model.AnalyticsAction;
-import eu.ideell.api.model.CommentI;
+import eu.ideell.api.model.CommentContext;
 import eu.ideell.api.model.Feedback;
 import eu.ideell.api.model.IdeellAccount;
-import eu.ideell.api.model.PostI;
+import eu.ideell.api.model.PostContext;
 import eu.ideell.api.model.ReplyToAccountRequest;
 import eu.ideell.api.model.ReplyToCommentRequest;
 import eu.ideell.api.model.ReplyToPostRequest;
@@ -30,13 +30,13 @@ public interface IdeellService {
 
   public long createReplyToAccountRequest(ReplyToAccountRequest resource);
 
-  public List<PostI> getNewPosts();
+  public List<PostContext> getNewPosts();
 
-  public List<PostI> getUnacceptedPosts();
+  public List<PostContext> getUnacceptedPosts();
 
-  public List<CommentI> getNewComments();
+  public List<CommentContext> getNewComments();
 
-  public List<CommentI> getUnacceptedComments();
+  public List<CommentContext> getUnacceptedComments();
 
   public long createReplyToPostRequest(ReplyToPostRequest resource);
 
