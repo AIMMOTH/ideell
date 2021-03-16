@@ -1,0 +1,42 @@
+  /*
+   * top purple: #b248f8
+   * purple: #b248f8
+   * bottom pink: #e32ae3
+   * text: #434343
+   */
+  h1 {
+    font-family: 'Knewave', cursive;
+    color: #b248f8;
+  }
+  h2, h3, h4 {
+    font-family: 'Comfortaa', cursive;
+    color: #b248f8;
+  }
+  html, body {
+    font-family: 'Open Sans', sans-serif;
+    color: #434343;
+  }
+  body {
+    text-align: center;
+  }
+  a, a:hover, a:visited {
+    color: #e32ae3;
+  }
+  .wrapper {
+    max-width: 1660px;
+    text-align: left;
+  }
+  .title {
+    text-align: center;
+    padding: 120px;
+  }
+  .panel {
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 4px 10px 10px 0px #aaAAaa;
+    margin: 40px;
+    padding: 20px;
+  }
+  .footer {
+    text-align: center;
+  }

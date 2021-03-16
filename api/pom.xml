@@ -71,66 +71,66 @@
     </dependency>
 
     <!-- Other -->
-    <dependency>
-      <groupId>com.google.cloud</groupId>
-      <artifactId>google-cloud-bigquery</artifactId>
-      <version>${bigquery.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.apis</groupId>
-      <artifactId>google-api-services-sheets</artifactId>
-      <version>${sheets.version}</version>
-      <scope>provided</scope>
-    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>com.google.cloud</groupId> -->
+<!--       <artifactId>google-cloud-bigquery</artifactId> -->
+<!--       <version>${bigquery.version}</version> -->
+<!--       <scope>provided</scope> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>com.google.apis</groupId> -->
+<!--       <artifactId>google-api-services-sheets</artifactId> -->
+<!--       <version>${sheets.version}</version> -->
+<!--       <scope>provided</scope> -->
+<!--     </dependency> -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
-    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>com.google.guava</groupId> -->
+<!--       <artifactId>guava</artifactId> -->
+<!--       <version>${guava.version}</version> -->
+<!--     </dependency> -->
     <dependency>
       <groupId>com.auth0</groupId>
       <artifactId>java-jwt</artifactId>
       <version>${auth0.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.auth0</groupId>
-      <artifactId>jwks-rsa</artifactId>
-      <version>${auth0.jwks.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.sendgrid</groupId>
-      <artifactId>sendgrid-java</artifactId>
-      <version>${sendgrid.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.sendgrid</groupId>
-      <artifactId>java-http-client</artifactId>
-      <version>${sendgrid.http.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.pdfbox</groupId>
-      <artifactId>pdfbox</artifactId>
-      <version>${pdfbox.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.github.vandeseer</groupId>
-      <artifactId>easytable</artifactId>
-      <version>${easytable.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.poi</groupId>
-      <artifactId>poi</artifactId>
-      <version>${poi.version}</version>
-      <scope>provided</scope>
-    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>com.auth0</groupId> -->
+<!--       <artifactId>jwks-rsa</artifactId> -->
+<!--       <version>${auth0.jwks.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>com.sendgrid</groupId> -->
+<!--       <artifactId>sendgrid-java</artifactId> -->
+<!--       <version>${sendgrid.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>com.sendgrid</groupId> -->
+<!--       <artifactId>java-http-client</artifactId> -->
+<!--       <version>${sendgrid.http.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.apache.pdfbox</groupId> -->
+<!--       <artifactId>pdfbox</artifactId> -->
+<!--       <version>${pdfbox.version}</version> -->
+<!--       <scope>provided</scope> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>com.github.vandeseer</groupId> -->
+<!--       <artifactId>easytable</artifactId> -->
+<!--       <version>${easytable.version}</version> -->
+<!--       <scope>provided</scope> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.apache.poi</groupId> -->
+<!--       <artifactId>poi</artifactId> -->
+<!--       <version>${poi.version}</version> -->
+<!--       <scope>provided</scope> -->
+<!--     </dependency> -->
 
     <!-- Test Dependencies -->
     <dependency>
