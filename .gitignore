@@ -1,8 +1,12 @@
 
 keys.json
+local.properties
+production.properties
 settings.json
 service-account-key.p12
-api/src/main/resources/static/**
+api/src/main/resources/static/vi/**
+api/src/main/resources/static/konst/**
+api/src/main/resources/static/kvitter/**
 db/**
 
 *.p12
