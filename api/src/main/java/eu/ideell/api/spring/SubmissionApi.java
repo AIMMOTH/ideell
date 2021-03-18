@@ -21,8 +21,7 @@ public class SubmissionApi {
 
   @GetMapping("get-submissions")
   public List<Submission> getSubmissions() {
-    final List<Submission> result = operations.findAll(Submission.class);
-    return result;
+    return operations.findAll(Submission.class);
   }
 
   @PostMapping("submission")

@@ -99,8 +99,8 @@
 </head>
 <body>
 <div class="wrapper">
-  <div class="title">
-    <h1><img src="images/logo.png" alt="Ideell- Idealistic Social Media"></h1>
+  <div class="center">
+    <img src="images/logo.png" alt="Ideell- Idealistic Social Media" style="width: 80%;">
   </div>
   <div class="panel">
     <h2>Welcome!</h2>
@@ -143,10 +143,25 @@
   <div class="panel center">
     <div class="center">
       <a href="https://www.youtube.com/watch?v=uaaC57tcci0&list=PLyvf0J4g8aICnsmtLkLpBTXWA6FZEhBFg&index=1" target="_blank">
-        <img src="images/playlist.png" style="max-width: 50%;">
+        <img src="images/playlist.png" style="width: 80%;">
       </a>
     </div>
     <p>We have a curated list with important videos you can watch at <a href="https://www.youtube.com/watch?v=uaaC57tcci0&list=PLyvf0J4g8aICnsmtLkLpBTXWA6FZEhBFg&index=1" target="_blank">YouTube</a>.</p>
+  </div>
+  <div class="panel">
+    <h3>Recommended reading</h3>
+    <div class="center">
+      <img src="images/books.png" style="width: 80%;">
+    </div>
+    <ul>
+      <li>Zucked, Roger McNamee</li>
+      <li>Strongmen: How They Rise Why They Succeed How They Fall, Ruth Ben-Ghiat</li>
+      <li>Russian Roulette, Michael Isikoff and David Corn</li>
+      <li>This is Not Propaganda, Peter Pomerantsev</li>
+      <li>On Tyranny, Timothy Snyder</li>
+      <li>War on Peace, Ronan Farrow</li>
+      <li>+ The Age of Surveillance Capitalism, Shoshana Zuboff</li>
+    </ul>
   </div>
   <div class="panel">
     <h2>Feedback</h2>
@@ -205,17 +220,29 @@
       <input type="text" id="nickname" name="requestedNickname">
 
       <div style="text-align: right;">
-        <input class="button" type="submit">
+        <input class="button" type="submit" value="Good luck!">
       </div>
     </form>
   </div>
+  <div class="panel center">
+    <h3>Sponsors</h3>
+    <img src="images/cewebab.png" style="width: 50%; box-shadow: 2px 2px 4px 2px gray;" alt="CEWEB AB www.cewebab.se">
+    <p>Hopefully more to come ... &lt;3</p>
+  </div>
   <hr>
   <div class="footer">
-    <a href="mailto:carl.emmoth@gmail.com">Info</a> | <a href="www.ideell.eu">www.Ideell.eu</a> | 2021-03-16
+    <a href="mailto:carl.emmoth@gmail.com">Info</a> | <a href="www.ideell.eu">www.Ideell.eu</a> | 2021-03-17
   </div>
 </div>
 <script type="application/javascript">
-
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/analytics", true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+      nameOfAction: "/index.html",
+      timeOfAction: new Date(),
+      currentUrl: "/index.html"
+  }));
 </script>
 </body>
 </html>

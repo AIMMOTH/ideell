@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import eu.ideell.api.model.AccountI;
-import eu.ideell.api.model.AnalyticsAction;
 import eu.ideell.api.model.CommentContext;
 import eu.ideell.api.model.Feedback;
 import eu.ideell.api.model.IdeellAccount;
@@ -39,11 +38,6 @@ public class IdeellApi {
   @PostMapping("feedback")
   public void postFeedback(final Feedback resource) {
     service.save(resource);
-  }
-
-  @PostMapping("analytics")
-  public void postAnalytics(final AnalyticsAction resource) {
-    service.removeIdsAndSave(resource);
   }
 
   @GetMapping("list-new-accounts")

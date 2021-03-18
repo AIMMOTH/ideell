@@ -3,7 +3,7 @@ package eu.ideell.api.service;
 import java.util.List;
 
 import eu.ideell.api.model.AccountI;
-import eu.ideell.api.model.AnalyticsAction;
+import eu.ideell.api.model.AnalyticsResource;
 import eu.ideell.api.model.CommentContext;
 import eu.ideell.api.model.Feedback;
 import eu.ideell.api.model.IdeellAccount;
@@ -22,7 +22,7 @@ public interface IdeellService {
 
   public void save(Feedback resource);
 
-  public void removeIdsAndSave(AnalyticsAction resource);
+  public void removeIdsAndSave(AnalyticsResource resource);
 
   public List<AccountI> getNewAccounts();
 

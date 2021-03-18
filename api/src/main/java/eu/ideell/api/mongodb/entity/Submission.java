@@ -19,7 +19,7 @@ public class Submission {
   @Id
   private Long submissionId;
   @Indexed
-  private final LocalDateTime created = LocalDateTime.now();
+  private LocalDateTime created = LocalDateTime.now();
   private boolean interestedInIdeellMembership;
   private boolean interestedInFreeKonst;
   private boolean interestedInFreeKvitter;
