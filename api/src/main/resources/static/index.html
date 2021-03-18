@@ -29,7 +29,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Knewave&family=Open+Sans&display=swap" rel="stylesheet">
 <style>
   /*
-   * top purple: #b248f8
+   * top black: #434343
+   * top purple: #9900ff83
    * purple: #b248f8
    * bottom pink: #e32ae3
    * text: #434343
@@ -43,30 +44,45 @@
     color: #b248f8;
   }
   html, body {
+    padding: 0px;
+    margin: 0px;
     font-family: 'Open Sans', sans-serif;
     color: #434343;
   }
   body {
-    text-align: center;
     font-size: large;
+    background-color: #e9eaf5;
   }
   a, a:hover, a:visited {
     color: #e32ae3;
   }
-  label {
-    /* display: block; */
+  li {
+    margin-bottom: 10px;
   }
   .wrapper {
     max-width: 1660px;
     text-align: left;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
   }
-  .title {
-    text-align: center;
-    padding: 120px;
+  .logo-placeholder {
+    padding: 30px;
+  }
+  .title-image {
+    width: 80%;
+    max-width: 480px;
   }
   .logo {
     font-family: 'Knewave', cursive;
     color: #b248f8;
+  }
+  label.input {
+    margin-top: 10px;
+  }
+  div.input {
+    margin-top: 10px;
   }
   .panel {
     border-radius: 10px;
@@ -83,6 +99,38 @@
     font-family: 'Comfortaa', cursive;
     font-weight: bold;
   }
+  /* .logo-placeholder {
+    font-size: 100px;
+    color: rgba(0, 0, 0, 0);
+  }
+  .logo-pink-bottom {
+    font-size: 100px;
+    position: absolute;
+    left: 39.5%;
+    font-weight: 900;
+    left: 40%;
+    color: #e32ae3;
+    z-index: 10;
+  }
+  .logo-purple-middle {
+    font-size: 100px;
+    position: absolute;
+    left: 39%;
+    font-weight: 900;
+    color: rgba(153, 0, 255, 0.5);
+    z-index: 20;
+  }
+  .logo-black-top {
+    font-size: 100px;
+    position: absolute;
+    left: 38.5%;
+    color: #434343;
+    z-index: 30;
+    font-weight: 900;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #434343;
+  } */
   .italics {
     font-style: italic;
   }
@@ -92,16 +140,30 @@
   .center {
     text-align: center;
   }
+  .right {
+    text-align: right;
+  }
   .footer {
     text-align: center;
+    margin-top: 20px;
+    padding-bottom: 200px;
   }
 </style>
 </head>
 <body>
 <div class="wrapper">
-  <div class="center">
-    <img src="images/logo.png" alt="Ideell- Idealistic Social Media" style="width: 80%;">
+  <div class="center logo-placeholder">
+    <img src="images/logo.png" alt="Ideell - Idealistic Social Media" class="title-image">
   </div>
+  <!-- <div class="center">
+    <h1>
+      <span class="logo-placeholder">ideell</span>
+      <span class="logo-pink-bottom">ideell</span>
+      <span class="logo-purple-middle">ideell</span>
+      <span class="logo-black-top">ideell</span>
+    </h1>
+    <h2>Idealistic Social Media</h2>
+  </div> -->
   <div class="panel">
     <h2>Welcome!</h2>
     <p>Ideell is a Swedish <a href="https://sv.wikipedia.org/wiki/Ideell_f%C3%B6rening" target="_blank"><span class="italics">ideell förening</span></a> which means it's a nonprofit organization.</p>
@@ -143,7 +205,7 @@
   <div class="panel center">
     <div class="center">
       <a href="https://www.youtube.com/watch?v=uaaC57tcci0&list=PLyvf0J4g8aICnsmtLkLpBTXWA6FZEhBFg&index=1" target="_blank">
-        <img src="images/playlist.png" style="width: 80%;">
+        <img src="images/playlist.png" style="width: 80%; max-width: 700px;">
       </a>
     </div>
     <p>We have a curated list with important videos you can watch at <a href="https://www.youtube.com/watch?v=uaaC57tcci0&list=PLyvf0J4g8aICnsmtLkLpBTXWA6FZEhBFg&index=1" target="_blank">YouTube</a>.</p>
@@ -151,7 +213,7 @@
   <div class="panel">
     <h3>Recommended reading</h3>
     <div class="center">
-      <img src="images/books.png" style="width: 80%;">
+      <img src="images/books.png" style="width: 80%; max-width: 800px;">
     </div>
     <ul>
       <li>Zucked, Roger McNamee</li>
@@ -169,69 +231,69 @@
 
       <p>Are you interested in ...</p>
 
-      <div>
+      <div class="input">
         <input type="checkbox" id="vi" name="interestedInFreeVi">
         <label for="vi">Free <span class="logo">Vi</span> account</label>
       </div>
 
-      <div>
+      <div class="input">
         <input type="checkbox" id="konst" name="interestedInFreeKonst">
         <label for="konst">Free <span class="logo">Konst</span> account</label>
       </div>
 
-      <div>
+      <div class="input">
         <input type="checkbox" id="kvitter" name="interestedInFreeKvitter">
         <label for="kvitter">Free <span class="logo">Kvitter</span> account</label>
       </div>
 
-      <div>
+      <div class="input">
         <input type="checkbox" id="donation" name="interestedInDonation">
         <label for="donation">Making donation</label>
       </div>
 
-      <div>
+      <div class="input">
         <input type="checkbox" id="sponsor" name="interestedInSponsorship">
         <label for="sponsor">Be a longtime sponsor</label>
       </div>
 
-      <div>
+      <div class="input">
         <input type="checkbox" id="membership" name="interestedInIdeellMembership">
         <label for="membership">Do you want to be part of Ideell and contribute with a monthly fee?</label>
       </div>
 
-      <label for="name">Name</label>
+      <label class="input" for="name">Name</label>
       <div>
         <input type="text" id="name" name="name">
       </div>
 
-      <label for="email">Email for contact</label>
+      <label class="input" for="email">Email for contact</label>
       <div>
         <input type="email" id="email" name="emailForContact">
       </div>
       
-      <div>
+      <div class="input">
         <label for="text">Feedback</label>
       </div>
       <textarea id="text" style="width: 100%;" rows=5 name="feedback"></textarea>
 
-      <div>
-        <label for="nickname">Do you want to reserv a nickname?</label>
+      <div class="input">
+        <label for="nickname">Do you want to reserve a nickname?</label>
       </div>
       <input type="text" id="nickname" name="requestedNickname">
 
-      <div style="text-align: right;">
+      <div  class="input right">
         <input class="button" type="submit" value="Good luck!">
       </div>
     </form>
   </div>
   <div class="panel center">
     <h3>Sponsors</h3>
-    <img src="images/cewebab.png" style="width: 50%; box-shadow: 2px 2px 4px 2px gray;" alt="CEWEB AB www.cewebab.se">
+    <img src="images/cewebab.png" style="width: 50%; max-width: 300px; box-shadow: 2px 2px 4px 2px gray;" alt="CEWEB AB www.cewebab.se">
     <p>Hopefully more to come ... &lt;3</p>
   </div>
   <hr>
   <div class="footer">
-    <a href="mailto:carl.emmoth@gmail.com">Info</a> | <a href="www.ideell.eu">www.Ideell.eu</a> | 2021-03-17
+    <a href="mailto:carl.emmoth@gmail.com">Info</a> | <a href="www.ideell.eu">www.Ideell.eu</a> | 2021-03-18
   </div>
 </div>
 <script type="application/javascript">
