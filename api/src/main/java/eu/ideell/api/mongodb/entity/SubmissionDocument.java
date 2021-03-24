@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Document
 @NoArgsConstructor
-public class Submission {
+public class SubmissionDocument {
 
   @Id
   private Long submissionId;
@@ -31,7 +31,7 @@ public class Submission {
   private String name;
   private String requestedNickname;
 
-  public Submission(final long id, final SubmissionResource resource) {
+  public SubmissionDocument(final long id, final SubmissionResource resource) {
     submissionId = id;
     emailForContact = resource.getEmailForContact();
     feedback = resource.getFeedback();

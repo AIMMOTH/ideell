@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import eu.ideell.api.mongodb.entity.Submission;
+import eu.ideell.api.mongodb.entity.SubmissionDocument;
 import eu.ideell.api.service.model.SubmissionResource;
 import se.cewebab.stockholm.util.Monad;
 
@@ -28,16 +28,16 @@ public class SubmissionApi {
 
   @GetMapping("get-submissions")
   public List<SubmissionResource> getSubmissions() {
-    return operations.findAll(Submission.class).stream().map(SubmissionResource::new).collect(Collectors.toList());
+    return operations.findAll(SubmissionDocument.class).stream().map(SubmissionResource::new).collect(Collectors.toList());
   }
 
   @PostMapping("submission")
   public RedirectView postSubmission(@ModelAttribute final SubmissionResource resource) {
-    final long count = operations.estimatedCount(Submission.class);
-    Monad.monad(new Submission(count, resource))
+    final long count = operations.estimatedCount(SubmissionDocument.class);
+    Monad.monad(new SubmissionDocument(count, resource))
       .accept(entity -> {
         final long submissionId = operations.save(entity).getSubmissionId();
-        final int id = repository.save(new SqlSearchDocument(submissionId, entity)).getId();
+        final int id = repository.save(new SubmissionRow(submissionId, entity)).getId();
 
         final String log = String.format("Saved entity with submission id %d and document id %d", submissionId, id);
         logger.info(log);

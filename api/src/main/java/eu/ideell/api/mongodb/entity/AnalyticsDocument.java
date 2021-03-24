@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Document
 @NoArgsConstructor
-public class Analytics {
+public class AnalyticsDocument {
 
   @Id
   private Long analyticsId;
@@ -27,7 +27,7 @@ public class Analytics {
   private String previousLink;
   private Date timeOfAction;
 
-  public Analytics(final long analyticsId, final AnalyticsResource resource) {
+  public AnalyticsDocument(final long analyticsId, final AnalyticsResource resource) {
     this.analyticsId = analyticsId;
     currentUrl = resource.getCurrentUrl();
     linkPressed = resource.getLinkPressed();

@@ -1,6 +1,6 @@
 package eu.ideell.api.service.model;
 
-import eu.ideell.api.mongodb.entity.Submission;
+import eu.ideell.api.mongodb.entity.SubmissionDocument;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,7 +19,7 @@ public class SubmissionResource {
   private String name;
   private String requestedNickname;
 
-  public SubmissionResource(final Submission entity) {
+  public SubmissionResource(final SubmissionDocument entity) {
     emailForContact = entity.getEmailForContact();
     feedback = entity.getFeedback();
     name = entity.getName();

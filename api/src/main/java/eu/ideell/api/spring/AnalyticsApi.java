@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import eu.ideell.api.model.AnalyticsResource;
-import eu.ideell.api.mongodb.entity.Analytics;
+import eu.ideell.api.mongodb.entity.AnalyticsDocument;
 
 @RestController
 public class AnalyticsApi {
@@ -21,7 +21,7 @@ public class AnalyticsApi {
 
   @GetMapping("analytics")
   public List<AnalyticsResource> get() {
-    return operations.findAll(Analytics.class).stream()
+    return operations.findAll(AnalyticsDocument.class).stream()
         .map(AnalyticsResource::new)
         .collect(Collectors.toList())
         ;
@@ -29,7 +29,7 @@ public class AnalyticsApi {
 
   @PostMapping("analytics")
   public void postAnalytics(@RequestBody final AnalyticsResource resource) {
-    final long count = operations.estimatedCount(Analytics.class);
-    operations.save(new Analytics(count, resource));
+    final long count = operations.estimatedCount(AnalyticsDocument.class);
+    operations.save(new AnalyticsDocument(count, resource));
   }
 }

@@ -10,15 +10,15 @@ import javax.persistence.Table;
 
 import org.apache.commons.lang3.StringUtils;
 
-import eu.ideell.api.mongodb.entity.Submission;
+import eu.ideell.api.mongodb.entity.SubmissionDocument;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
-@Table(name = "search_document")
+@Table
 @Data
-public class SqlSearchDocument {
+public class SubmissionRow {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class SqlSearchDocument {
   private String textLowerCase;
   private String textNormalized;
 
-  public SqlSearchDocument(final long submissionId, final Submission entity) {
+  public SubmissionRow(final long submissionId, final SubmissionDocument entity) {
     this.submissionId = submissionId;
     final String text = Optional.ofNullable(entity.getFeedback())
       .orElse("")

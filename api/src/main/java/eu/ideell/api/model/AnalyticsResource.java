@@ -2,7 +2,7 @@ package eu.ideell.api.model;
 
 import java.util.Date;
 
-import eu.ideell.api.mongodb.entity.Analytics;
+import eu.ideell.api.mongodb.entity.AnalyticsDocument;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +17,7 @@ public class AnalyticsResource {
   private Date timeOfAction;
   private String previousLink;
 
-  public AnalyticsResource(final Analytics entity) {
+  public AnalyticsResource(final AnalyticsDocument entity) {
     this.currentUrl = entity.getCurrentUrl();
     this.linkPressed = entity.getLinkPressed();
     this.msSinceLastActivity = entity.getMsSinceLastActivity();
