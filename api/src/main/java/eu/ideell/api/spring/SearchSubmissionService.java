@@ -12,10 +12,10 @@ import eu.ideell.api.mongodb.entity.SubmissionDocument;
 import eu.ideell.api.service.model.SubmissionResource;
 
 @Service
-public class SqlSearchService {
+public class SearchSubmissionService {
 
   @Autowired
-  private SqlSearchDocumentRepository repository;
+  private SearchSubmissionRepository repository;
   @Autowired
   private MongoOperations mongo;
 
@@ -29,7 +29,7 @@ public class SqlSearchService {
 
   public Optional<SubmissionResource> findWithId(final Integer id) {
     return repository.findById(id)
-        .map(SubmissionRow::getSubmissionId)
+        .map(SearchSubmissionRow::getSubmissionId)
         .map(sqlId -> mongo.findById(sqlId, SubmissionDocument.class))
         .map(SubmissionResource::new)
         ;

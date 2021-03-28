@@ -2,7 +2,7 @@ package eu.ideell.api.model;
 
 import java.util.Date;
 
-import eu.ideell.api.mongodb.entity.AnalyticsDocument;
+import eu.ideell.api.spring.AnalyticsRow;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,12 +17,12 @@ public class AnalyticsResource {
   private Date timeOfAction;
   private String previousLink;
 
-  public AnalyticsResource(final AnalyticsDocument entity) {
-    this.currentUrl = entity.getCurrentUrl();
-    this.linkPressed = entity.getLinkPressed();
-    this.msSinceLastActivity = entity.getMsSinceLastActivity();
-    this.nameOfAction = entity.getNameOfAction();
-    this.timeOfAction = entity.getTimeOfAction();
-    this.previousLink = entity.getPreviousLink();
+  public AnalyticsResource(final AnalyticsRow row) {
+    this.currentUrl = row.getCurrentUrl();
+    this.linkPressed = row.getLinkPressed();
+    this.msSinceLastActivity = row.getMsSinceLastActivity();
+    this.nameOfAction = row.getNameOfAction();
+    this.timeOfAction = row.getTimeOfAction();
+    this.previousLink = row.getPreviousLink();
   }
 }

@@ -22,7 +22,7 @@ public class SubmissionApi {
 
   private Logger logger = LoggerFactory.getLogger(SubmissionApi.class);
   @Autowired
-  private SqlSearchDocumentRepository repository;
+  private SearchSubmissionRepository repository;
   @Autowired
   private MongoOperations operations;
 
@@ -37,7 +37,7 @@ public class SubmissionApi {
     Monad.monad(new SubmissionDocument(count, resource))
       .accept(entity -> {
         final long submissionId = operations.save(entity).getSubmissionId();
-        final int id = repository.save(new SubmissionRow(submissionId, entity)).getId();
+        final int id = repository.save(new SearchSubmissionRow(submissionId, entity)).getId();
 
         final String log = String.format("Saved entity with submission id %d and document id %d", submissionId, id);
         logger.info(log);
