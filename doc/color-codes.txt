@@ -1,15 +1,82 @@
-
-black brown
-
-493c3c
-
-
-light yellow
-
-fbf9c5
-f7f5b0
-
-
-white gray
-
-f8f8f8
+  /*
+   * top black: #434343
+   * top purple: #9900ff83
+   * purple: #b248f8
+   * bottom pink: #e32ae3
+   * text: #434343
+   */
+  h1 {
+    font-family: 'Knewave', cursive;
+    color: #b248f8;
+  }
+  h2, h3, h4 {
+    text-align: center;
+    font-weight: normal;
+    font-family: 'Comfortaa', cursive;
+    color: #b248f8;
+  }
+  html, body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    color: #434343;
+  }
+  body {
+    font-size: large;
+    background-color: #e9eaf5;
+  }
+  a, a:hover, a:visited {
+    color: #e32ae3;
+  }
+  .square-panel {
+    border: #e32ae3 3px solid;
+    margin: 40px;
+    padding: 20px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .gray-panel {
+    border: #888888 3px solid;
+    border-radius: 30px;
+    margin: 40px;
+    padding: 20px;
+  }
+  .panel {
+    border: #b248f8 3px solid;
+    border-radius: 30px;
+    margin: 40px;
+    padding: 20px;
+  }
+  .logo-placeholder {
+    font-size: 100px;
+    color: rgba(0, 0, 0, 0);
+  }
+  .logo-pink-bottom {
+    font-size: 100px;
+    position: absolute;
+    left: 39.5%;
+    font-weight: 900;
+    left: 40%;
+    color: #e32ae3;
+    z-index: 10;
+  }
+  .logo-purple-middle {
+    font-size: 100px;
+    position: absolute;
+    left: 39%;
+    font-weight: 900;
+    color: rgba(153, 0, 255, 0.5);
+    z-index: 20;
+  }
+  .logo-black-top {
+    font-size: 100px;
+    position: absolute;
+    left: 38.5%;
+    color: #434343;
+    z-index: 30;
+    font-weight: 900;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #434343;
+  }

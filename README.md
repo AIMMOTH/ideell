@@ -12,6 +12,14 @@ This is root folder for Ideell's all services. Short description for subfolders
 Try the following short description of how to start your local environment
 
 # Install Java 15, MongoDB, MariaDB, Eclipse/Intellij (install Lombok for Eclipse), Maven, Npm
+# Add admin to mongo:
+## Start mongo with "> mongo"
+## Show databases "show dbs"
+## Create Ideell database "use ideell"
+## Create admin database "use admin"
+## Show users "db.getUsers();"
+## Create Ideell admin user "db.createUser({ user: "ideell", pwd: "ideell", roles: []});"
+## Grant Ideell admin role "db.grantRolesToUser("ideell", [{role: "readWrite", db: "ideell"}])"
 # Clone repo at https://github.com/AIMMOTH/ideell 
 # Obtain copy of Stockholm Boot (contact Aimmoth@Github) and install locally
 # Import Maven project
