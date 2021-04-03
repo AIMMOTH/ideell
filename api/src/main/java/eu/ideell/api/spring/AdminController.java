@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import eu.ideell.api.mongodb.entity.Admin;
 
+@Deprecated
 @RestController
 @RequestMapping("/admin")
 public class AdminController {

@@ -11,6 +11,7 @@ import com.google.common.collect.Lists;
 
 import se.cewebab.stockholm.util.Settings;
 
+@Deprecated
 //@EnableWebSecurity
 public class SecurityConfig
 //extends WebSecurityConfigurerAdapter

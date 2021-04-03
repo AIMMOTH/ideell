@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
+
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.4.2</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <relativePath /> <!-- lookup parent from repository -->
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -21,8 +22,7 @@
     <appengine.maven.plugin.version>2.4.0</appengine.maven.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.release>15</maven.compiler.release>
     <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
 
     <stockholm-lib.version>0.2.0-SNAPSHOT</stockholm-lib.version>
@@ -32,7 +32,7 @@
     <auth0.jwks.version>0.8.3</auth0.jwks.version>
     <bigquery.version>1.90.0</bigquery.version>
     <sheets.version>v4-rev581-1.25.0</sheets.version>
-<!--     <mockito.version>1.10.19</mockito.version> -->
+    <!-- <mockito.version>1.10.19</mockito.version> -->
     <sendgrid.version>4.4.1</sendgrid.version>
     <sendgrid.http.version>4.2.0</sendgrid.http.version>
     <pdfbox.version>2.0.21</pdfbox.version>
@@ -57,24 +57,24 @@
     <dependency>
       <groupId>org.mariadb.jdbc</groupId>
       <artifactId>mariadb-java-client</artifactId>
-<!--       <scope>runtime</scope> -->
+      <!-- <scope>runtime</scope> -->
     </dependency>
-<!--     <dependency> -->
-<!--       <groupId>org.springframework.boot</groupId> -->
-<!--       <artifactId>spring-boot-starter-data-elasticsearch</artifactId> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.springframework.boot</groupId> -->
-<!--       <artifactId>spring-boot-starter-security</artifactId> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.springframework.security</groupId> -->
-<!--       <artifactId>spring-security-oauth2-resource-server</artifactId> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.springframework.security</groupId> -->
-<!--       <artifactId>spring-security-oauth2-jose</artifactId> -->
-<!--     </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.springframework.boot</groupId> -->
+    <!-- <artifactId>spring-boot-starter-data-elasticsearch</artifactId> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.springframework.boot</groupId> -->
+    <!-- <artifactId>spring-boot-starter-security</artifactId> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.springframework.security</groupId> -->
+    <!-- <artifactId>spring-security-oauth2-resource-server</artifactId> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.springframework.security</groupId> -->
+    <!-- <artifactId>spring-security-oauth2-jose</artifactId> -->
+    <!-- </dependency> -->
 
     <!-- Stockholm -->
     <dependency>
@@ -84,65 +84,65 @@
     </dependency>
 
     <!-- Other -->
-<!--     <dependency> -->
-<!--       <groupId>com.google.cloud</groupId> -->
-<!--       <artifactId>google-cloud-bigquery</artifactId> -->
-<!--       <version>${bigquery.version}</version> -->
-<!--       <scope>provided</scope> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>com.google.apis</groupId> -->
-<!--       <artifactId>google-api-services-sheets</artifactId> -->
-<!--       <version>${sheets.version}</version> -->
-<!--       <scope>provided</scope> -->
-<!--     </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>com.google.cloud</groupId> -->
+    <!-- <artifactId>google-cloud-bigquery</artifactId> -->
+    <!-- <version>${bigquery.version}</version> -->
+    <!-- <scope>provided</scope> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>com.google.apis</groupId> -->
+    <!-- <artifactId>google-api-services-sheets</artifactId> -->
+    <!-- <version>${sheets.version}</version> -->
+    <!-- <scope>provided</scope> -->
+    <!-- </dependency> -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
-<!--     <dependency> -->
-<!--       <groupId>com.google.guava</groupId> -->
-<!--       <artifactId>guava</artifactId> -->
-<!--       <version>${guava.version}</version> -->
-<!--     </dependency> -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
+    </dependency>
     <dependency>
       <groupId>com.auth0</groupId>
       <artifactId>java-jwt</artifactId>
       <version>${auth0.version}</version>
     </dependency>
-<!--     <dependency> -->
-<!--       <groupId>com.auth0</groupId> -->
-<!--       <artifactId>jwks-rsa</artifactId> -->
-<!--       <version>${auth0.jwks.version}</version> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>com.sendgrid</groupId> -->
-<!--       <artifactId>sendgrid-java</artifactId> -->
-<!--       <version>${sendgrid.version}</version> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>com.sendgrid</groupId> -->
-<!--       <artifactId>java-http-client</artifactId> -->
-<!--       <version>${sendgrid.http.version}</version> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.apache.pdfbox</groupId> -->
-<!--       <artifactId>pdfbox</artifactId> -->
-<!--       <version>${pdfbox.version}</version> -->
-<!--       <scope>provided</scope> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>com.github.vandeseer</groupId> -->
-<!--       <artifactId>easytable</artifactId> -->
-<!--       <version>${easytable.version}</version> -->
-<!--       <scope>provided</scope> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.apache.poi</groupId> -->
-<!--       <artifactId>poi</artifactId> -->
-<!--       <version>${poi.version}</version> -->
-<!--       <scope>provided</scope> -->
-<!--     </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>com.auth0</groupId> -->
+    <!-- <artifactId>jwks-rsa</artifactId> -->
+    <!-- <version>${auth0.jwks.version}</version> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>com.sendgrid</groupId> -->
+    <!-- <artifactId>sendgrid-java</artifactId> -->
+    <!-- <version>${sendgrid.version}</version> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>com.sendgrid</groupId> -->
+    <!-- <artifactId>java-http-client</artifactId> -->
+    <!-- <version>${sendgrid.http.version}</version> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.apache.pdfbox</groupId> -->
+    <!-- <artifactId>pdfbox</artifactId> -->
+    <!-- <version>${pdfbox.version}</version> -->
+    <!-- <scope>provided</scope> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>com.github.vandeseer</groupId> -->
+    <!-- <artifactId>easytable</artifactId> -->
+    <!-- <version>${easytable.version}</version> -->
+    <!-- <scope>provided</scope> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.apache.poi</groupId> -->
+    <!-- <artifactId>poi</artifactId> -->
+    <!-- <version>${poi.version}</version> -->
+    <!-- <scope>provided</scope> -->
+    <!-- </dependency> -->
 
     <!-- Test Dependencies -->
     <dependency>
@@ -155,12 +155,12 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
-<!--     <dependency> -->
-<!--       <groupId>org.mockito</groupId> -->
-<!--       <artifactId>mockito-all</artifactId> -->
-<!--       <version>${mockito.version}</version> -->
-<!--       <scope>test</scope> -->
-<!--     </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.mockito</groupId> -->
+    <!-- <artifactId>mockito-all</artifactId> -->
+    <!-- <version>${mockito.version}</version> -->
+    <!-- <scope>test</scope> -->
+    <!-- </dependency> -->
 
   </dependencies>
 
@@ -179,6 +179,15 @@
               <artifactId>lombok</artifactId>
             </exclude>
           </excludes>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <release>15</release>
         </configuration>
       </plugin>
       

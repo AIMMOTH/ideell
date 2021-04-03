@@ -2,6 +2,7 @@ package eu.ideell.api.spring;
 
 import org.springframework.util.Assert;
 
+@Deprecated
 public class AudienceValidator
 //implements OAuth2TokenValidator<Jwt>
 {
