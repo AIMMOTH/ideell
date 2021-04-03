@@ -28,6 +28,7 @@
     <stockholm-lib.version>0.2.0-SNAPSHOT</stockholm-lib.version>
     <lombok.version>1.18.16</lombok.version>
     <guava.version>30.0-jre</guava.version>
+    <gson.version>2.8.2</gson.version>
     <auth0.version>3.8.2</auth0.version>
     <auth0.jwks.version>0.8.3</auth0.jwks.version>
     <bigquery.version>1.90.0</bigquery.version>
@@ -35,6 +36,7 @@
     <!-- <mockito.version>1.10.19</mockito.version> -->
     <sendgrid.version>4.4.1</sendgrid.version>
     <sendgrid.http.version>4.2.0</sendgrid.http.version>
+    <commons-lang3.version>3.12.0</commons-lang3.version>
     <pdfbox.version>2.0.21</pdfbox.version>
     <easytable.version>0.7.1</easytable.version>
     <poi.version>3.17</poi.version>
@@ -100,49 +102,55 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
-    </dependency>
+
     <dependency>
       <groupId>com.auth0</groupId>
       <artifactId>java-jwt</artifactId>
       <version>${auth0.version}</version>
     </dependency>
-    <!-- <dependency> -->
-    <!-- <groupId>com.auth0</groupId> -->
-    <!-- <artifactId>jwks-rsa</artifactId> -->
-    <!-- <version>${auth0.jwks.version}</version> -->
-    <!-- </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>com.sendgrid</groupId> -->
-    <!-- <artifactId>sendgrid-java</artifactId> -->
-    <!-- <version>${sendgrid.version}</version> -->
-    <!-- </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>com.sendgrid</groupId> -->
-    <!-- <artifactId>java-http-client</artifactId> -->
-    <!-- <version>${sendgrid.http.version}</version> -->
-    <!-- </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>org.apache.pdfbox</groupId> -->
-    <!-- <artifactId>pdfbox</artifactId> -->
-    <!-- <version>${pdfbox.version}</version> -->
-    <!-- <scope>provided</scope> -->
-    <!-- </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>com.github.vandeseer</groupId> -->
-    <!-- <artifactId>easytable</artifactId> -->
-    <!-- <version>${easytable.version}</version> -->
-    <!-- <scope>provided</scope> -->
-    <!-- </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>org.apache.poi</groupId> -->
-    <!-- <artifactId>poi</artifactId> -->
-    <!-- <version>${poi.version}</version> -->
-    <!-- <scope>provided</scope> -->
-    <!-- </dependency> -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons-lang3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson.version}</version>
+    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>com.auth0</groupId> -->
+<!--       <artifactId>jwks-rsa</artifactId> -->
+<!--       <version>${auth0.jwks.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>com.sendgrid</groupId> -->
+<!--       <artifactId>sendgrid-java</artifactId> -->
+<!--       <version>${sendgrid.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>com.sendgrid</groupId> -->
+<!--       <artifactId>java-http-client</artifactId> -->
+<!--       <version>${sendgrid.http.version}</version> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.apache.pdfbox</groupId> -->
+<!--       <artifactId>pdfbox</artifactId> -->
+<!--       <version>${pdfbox.version}</version> -->
+<!--       <scope>provided</scope> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>com.github.vandeseer</groupId> -->
+<!--       <artifactId>easytable</artifactId> -->
+<!--       <version>${easytable.version}</version> -->
+<!--       <scope>provided</scope> -->
+<!--     </dependency> -->
+<!--     <dependency> -->
+<!--       <groupId>org.apache.poi</groupId> -->
+<!--       <artifactId>poi</artifactId> -->
+<!--       <version>${poi.version}</version> -->
+<!--       <scope>provided</scope> -->
+<!--     </dependency> -->
 
     <!-- Test Dependencies -->
     <dependency>
@@ -212,6 +220,15 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <forceJavacCompilerUse>true</forceJavacCompilerUse>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 </project>
