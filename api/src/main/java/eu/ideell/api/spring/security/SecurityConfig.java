@@ -1,4 +1,6 @@
-package eu.ideell.api.spring;
+package eu.ideell.api.spring.security;
+
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,8 +8,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import com.google.common.collect.Lists;
 
 import se.cewebab.stockholm.util.Settings;
 
@@ -54,7 +54,7 @@ public class SecurityConfig
 
   CorsConfigurationSource corsConfigurationSource() {
     final CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedMethods(Lists.newArrayList(
+    configuration.setAllowedMethods(Arrays.asList(
       HttpMethod.GET.name(),
       HttpMethod.PUT.name(),
       HttpMethod.POST.name(),

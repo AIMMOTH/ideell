@@ -1,4 +1,4 @@
-package eu.ideell.api.spring;
+package eu.ideell.api.spring.submission;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +15,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import eu.ideell.api.mongodb.entity.SubmissionDocument;
 import eu.ideell.api.service.model.SubmissionResource;
+import eu.ideell.api.spring.searchsubmission.SearchSubmissionRepository;
+import eu.ideell.api.spring.searchsubmission.SearchSubmissionRow;
 import se.cewebab.stockholm.util.Monad;
 
 @RestController("submission-api")

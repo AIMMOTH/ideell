@@ -1,4 +1,4 @@
-package eu.ideell.api.spring;
+package eu.ideell.api.spring.internal.admin;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

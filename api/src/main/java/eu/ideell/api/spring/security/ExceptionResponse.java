@@ -1,4 +1,4 @@
-package eu.ideell.api.spring;
+package eu.ideell.api.spring.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

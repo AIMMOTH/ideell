@@ -1,12 +1,12 @@
 package eu.ideell.api.mongodb;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -14,7 +14,7 @@ import eu.ideell.api.mongodb.entity.Admin;
 import eu.ideell.api.mongodb.entity.Customer;
 import eu.ideell.api.mongodb.entity.Department;
 import eu.ideell.api.mongodb.entity.User;
-import eu.ideell.api.spring.UnauthorizedException;
+import eu.ideell.api.spring.security.UnauthorizedException;
 import lombok.NoArgsConstructor;
 import se.cewebab.stockholm.auth0.Auth0;
 import se.cewebab.stockholm.mongodb.SecureEntity;
@@ -98,7 +98,7 @@ public class SecureMongoDbImpl extends AbstractSecureMongoDb
 
   @Override
   public List<String> getPublicKinds() {
-    return Lists.newArrayList("Product");
+    return Arrays.asList("Product");
   }
 
   public <Entity> void deleteAsSystem(final Entity entity) {

@@ -16,7 +16,7 @@ import eu.ideell.api.mongodb.entity.Customer;
 import eu.ideell.api.mongodb.entity.Department;
 import eu.ideell.api.mongodb.entity.User;
 import eu.ideell.api.mongodb.entity.UserInvitation;
-import eu.ideell.api.spring.UnauthorizedException;
+import eu.ideell.api.spring.security.UnauthorizedException;
 import se.cewebab.stockholm.util.Log;
 
 public abstract class AbstractSecureMongoDb {

@@ -1,4 +1,4 @@
-package eu.ideell.api.spring;
+package eu.ideell.api.spring.analytics;
 
 import java.util.List;
 import java.util.stream.Collectors;

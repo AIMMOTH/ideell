@@ -1,4 +1,4 @@
-package eu.ideell.api.spring;
+package eu.ideell.api.spring.searchsubmission;
 
 import java.util.Date;
 import java.util.Optional;

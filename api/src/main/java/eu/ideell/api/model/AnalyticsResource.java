@@ -2,7 +2,7 @@ package eu.ideell.api.model;
 
 import java.util.Date;
 
-import eu.ideell.api.spring.AnalyticsRow;
+import eu.ideell.api.spring.analytics.AnalyticsRow;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
