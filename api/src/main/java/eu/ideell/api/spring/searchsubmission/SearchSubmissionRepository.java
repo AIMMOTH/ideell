@@ -9,5 +9,4 @@ public interface SearchSubmissionRepository extends JpaRepository<SearchSubmissi
 
   @Query("select submissionId from SearchSubmissionRow table where table.textOriginal like %:text% or table.textNormalized like %:text% or table.textLowerCase like %:text%")
   public List<Integer> queryByText(String text);
-
 }

@@ -4,9 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
-//@CrossOrigin("${cors}")
-@EnableCaching
+/*
+ * Same as adding
+ * @Configuration
+ * @EnableAutoConfiguration
+ * @ComponentScan
+ */
 @SpringBootApplication
+//@CrossOrigin("${cors}")
+@EnableCaching // https://spring.io/guides/gs/caching/
 public class IdeellApplication {
 
   public static void main(final String[] args) {
