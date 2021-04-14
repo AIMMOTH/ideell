@@ -30,7 +30,7 @@ public class SubmissionApi {
   @Autowired
   private MongoOperations operations;
 
-  @Cacheable("submissions")
+  @Cacheable("get-submissions")
   @GetMapping("get-submissions")
   public List<SubmissionResource> getSubmissions() {
     return operations.findAll(SubmissionDocument.class).stream().map(SubmissionResource::new).collect(Collectors.toList());
@@ -52,7 +52,10 @@ public class SubmissionApi {
     return new RedirectView("/index.html");
   }
 
-  @CacheEvict(cacheNames = {"submissions", "search-submission"}, allEntries = true)
+  /*
+   * TODO: Doesn't evict??
+   */
+  @CacheEvict(cacheNames = {"get-submissions", "search-submissions"}, allEntries = true)
   private SearchSubmissionRow save(final SearchSubmissionRow searchSubmissionRow) {
     return repository.save(searchSubmissionRow);
   }
