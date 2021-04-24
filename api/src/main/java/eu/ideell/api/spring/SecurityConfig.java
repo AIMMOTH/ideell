@@ -1,7 +1,10 @@
 package eu.ideell.api.spring;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -12,6 +15,9 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtDecoders;
 import org.springframework.security.oauth2.jwt.JwtValidators;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -22,12 +28,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
   private String issuer;
 
+  @Value("${csp}")
+  private String csp;
+
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
       .mvcMatchers("api/v1/public/").permitAll()
       .mvcMatchers("/api/v1/private/").authenticated()
       .and().cors()
+      .configurationSource(corsConfigurationSource())
       .and().oauth2ResourceServer().jwt()
       ;
   }
@@ -45,4 +55,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
       return jwtDecoder;
   }
+
+  CorsConfigurationSource corsConfigurationSource() {
+    final CorsConfiguration configuration = new CorsConfiguration();
+    configuration.setAllowedMethods(Arrays.asList(
+      HttpMethod.GET.name(),
+      HttpMethod.PUT.name(),
+      HttpMethod.POST.name(),
+      HttpMethod.DELETE.name()
+    ));
+
+    final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", configuration.applyPermitDefaultValues());
+    return source;
+  }
+
+//  @Bean
+//  SecurityWebFilterChain springSecurityFilterChain(final ServerHttpSecurity http) {
+//    http.headers().contentSecurityPolicy("default-src 'self' " + csp)
+//      .reportOnly(true)
+//      ;
+//    return http.build();
+//  }
 }
