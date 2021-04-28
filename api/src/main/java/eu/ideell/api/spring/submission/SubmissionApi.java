@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import eu.ideell.api.service.model.SubmissionResource;
 
-@RestController("submission-api")
+@RestController("Submission API")
 public class SubmissionApi {
 
   @Autowired
@@ -24,13 +24,13 @@ public class SubmissionApi {
   private CacheManager cache;
 
   @Cacheable("get-submissions")
-  @GetMapping("get-submissions")
+  @GetMapping("/api/v1/public/get-submissions")
   public List<SubmissionResource> getSubmissions(@RequestHeader final Map<String, String> headers) {
     return service.getSubmissions();
   }
 
 //  @CacheEvict("get-submissions")
-  @PostMapping("submission")
+  @PostMapping("/api/v1/public/submission")
   public RedirectView postSubmission(@ModelAttribute final SubmissionResource resource) {
     cache.getCache("get-submissions").clear();
     return service.createSubmission(resource);

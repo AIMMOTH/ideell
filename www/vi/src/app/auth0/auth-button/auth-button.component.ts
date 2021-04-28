@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject  } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-auth-button',
@@ -8,9 +9,14 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class AuthButtonComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(@Inject(DOCUMENT) public document: Document, public auth: AuthService) {
+  }
 
   ngOnInit(): void {
   }
 
+  redirect() {
+    const o = { redirect_uri: 'http://localhost:4200/#/' };
+    this.auth.loginWithRedirect();
+  }
 }

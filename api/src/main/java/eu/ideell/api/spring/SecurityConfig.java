@@ -18,9 +18,11 @@ import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
   @Value("${auth0.audience}")
   private String audience;
@@ -28,24 +30,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
   private String issuer;
 
+  @Value("${cors}")
+  private String cors;
+
   @Value("${csp}")
   private String csp;
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
-      .mvcMatchers("api/v1/public/").permitAll()
-      .mvcMatchers("/api/v1/private/").authenticated()
-      .and().cors()
-      .configurationSource(corsConfigurationSource())
+      .mvcMatchers("/api/v1/public/**").permitAll()
+      .mvcMatchers("/api/v1/private/**").authenticated()
+      .and().cors().configurationSource(corsConfigurationSource())
+//      .and().csrf().disable()
       .and().oauth2ResourceServer().jwt()
       ;
   }
 
+  @Override
+  public void addCorsMappings(CorsRegistry registry) {
+    registry.addMapping("/**").allowedMethods("*");
+  }
+
   @Bean
   JwtDecoder jwtDecoder() {
-      NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder)
-              JwtDecoders.fromOidcIssuerLocation(issuer);
+      NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder) JwtDecoders.fromOidcIssuerLocation(issuer);
 
       OAuth2TokenValidator<Jwt> audienceValidator = new AudienceValidator(audience);
       OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuer);
@@ -56,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       return jwtDecoder;
   }
 
-  CorsConfigurationSource corsConfigurationSource() {
+  private CorsConfigurationSource corsConfigurationSource() {
     final CorsConfiguration configuration = new CorsConfiguration();
     configuration.setAllowedMethods(Arrays.asList(
       HttpMethod.GET.name(),

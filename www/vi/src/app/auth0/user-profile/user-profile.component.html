@@ -3,4 +3,7 @@
   <li>{{ user.name }}</li>
   <li>{{ user.email }}</li>
 </ul>
-<footer></footer>
+<!-- <p *ngIf="!auth.user$ | async as user">Ej inloggad :(</p> -->
+<p>Get public <button (click)="getPublic()">Get Public</button></p>
+<p>Get public <button (click)="getPrivate()">Get Private</button></p>
+<!-- <footer></footer> -->
