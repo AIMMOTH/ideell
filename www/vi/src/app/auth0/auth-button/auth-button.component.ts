@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject  } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-auth-button',
@@ -16,7 +17,6 @@ export class AuthButtonComponent implements OnInit {
   }
 
   redirect() {
-    const o = { redirect_uri: 'http://localhost:4200/#/' };
-    this.auth.loginWithRedirect();
+    this.auth.loginWithRedirect({ redirect_uri: environment.vi.redirect_uri });
   }
 }
