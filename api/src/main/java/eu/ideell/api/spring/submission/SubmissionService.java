@@ -14,7 +14,7 @@ import eu.ideell.api.mongodb.entity.SubmissionDocument;
 import eu.ideell.api.service.model.SubmissionResource;
 import eu.ideell.api.spring.searchsubmission.SearchSubmissionRepository;
 import eu.ideell.api.spring.searchsubmission.SearchSubmissionRow;
-import se.cewebab.stockholm.util.Monad;
+import eu.ideell.api.util.Monad;
 
 @Service
 public class SubmissionService {

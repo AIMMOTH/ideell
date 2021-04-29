@@ -3,6 +3,7 @@ package eu.ideell.api.spring;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 /*
  * Same as adding
@@ -11,6 +12,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * @ComponentScan
  */
 @SpringBootApplication
+@CrossOrigin("*")
 //@CrossOrigin("${cors}")
 @EnableCaching // https://spring.io/guides/gs/caching/
 public class IdeellApplication {
