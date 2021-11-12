@@ -1,8 +1,6 @@
-package eu.ideell.api.internal.admin;
+package eu.ideell.api.mongodb.admin;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-
-import eu.ideell.api.mongodb.entity.Admin;
 
 @Deprecated
 public interface AdminRepository extends MongoRepository<Admin, String> {

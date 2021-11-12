@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mongodb:
+    image: 'mongo'
+    environment:
+      - MONGO_INITDB_DATABASE=ideell
+      - MONGO_INITDB_ROOT_USERNAME=ideell
+      - MONGO_INITDB_ROOT_PASSWORD=ideell
+    volumes:
+      - ./db/db-mongo/:/data/db
+    ports:
+      - 27017:27017
+  mariadb:
+    image: 'mariadb'
+    restart: always
+    environment:
+      MARIADB_DATABASE: ideell
+      MARIADB_USER: ideell
+      MARIADB_PASSWORD: ideell
+#      MARIADB_ROOT_USER: ideell
+      MARIADB_ROOT_PASSWORD: ideell
+    volumes:
+      - ./db/db-maria/:/docker-entreypoint-initdb.d
+    ports:
+      - 3306:3306

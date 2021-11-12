@@ -1,4 +1,4 @@
-package eu.ideell.api.analytics;
+package eu.ideell.api.mariadb.analytics;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

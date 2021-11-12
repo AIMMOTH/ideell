@@ -1,4 +1,4 @@
-package eu.ideell.api.submission;
+package eu.ideell.api.mariadb.submission;
 
 import java.util.List;
 import java.util.Map;
@@ -23,13 +23,13 @@ public class SubmissionApi {
 
   @Cacheable("get-submissions")
   @GetMapping("/api/v1/public/get-submissions")
-  public List<SubmissionResource> getSubmissions(@RequestHeader final Map<String, String> headers) {
+  public List<SubmissionRow> getSubmissions(@RequestHeader final Map<String, String> headers) {
     return service.getSubmissions();
   }
 
 //  @CacheEvict("get-submissions")
   @PostMapping("/api/v1/public/submission")
-  public RedirectView postSubmission(@ModelAttribute final SubmissionResource resource) {
+  public RedirectView postSubmission(@ModelAttribute final SubmissionRow resource) {
     cache.getCache("get-submissions").clear();
     return service.createSubmission(resource);
   }

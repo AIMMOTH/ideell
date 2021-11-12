@@ -1,4 +1,4 @@
-package eu.ideell.api.searchsubmission;
+package eu.ideell.api.mariadb.searchsubmission;
 
 import java.util.List;
 

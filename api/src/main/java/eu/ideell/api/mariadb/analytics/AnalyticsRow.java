@@ -1,4 +1,4 @@
-package eu.ideell.api.analytics;
+package eu.ideell.api.mariadb.analytics;
 
 import java.util.Date;
 
@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import eu.ideell.api.model.AnalyticsResource;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

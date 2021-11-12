@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Auth0UserInfo {
+
   private String sub;
   private String givenName;
   private String familyName;

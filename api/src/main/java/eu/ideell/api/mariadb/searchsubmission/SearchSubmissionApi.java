@@ -1,4 +1,4 @@
-package eu.ideell.api.searchsubmission;
+package eu.ideell.api.mariadb.searchsubmission;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import eu.ideell.api.submission.SubmissionResource;
+import eu.ideell.api.mariadb.submission.SubmissionRow;
 
 @RestController
 public class SearchSubmissionApi {
@@ -18,7 +18,7 @@ public class SearchSubmissionApi {
 
   @Cacheable("search-submissions")
   @GetMapping("search-submissions")
-  public List<SubmissionResource> get(@RequestParam("text") final String text) {
+  public List<SubmissionRow> get(@RequestParam("text") final String text) {
     return service.searchWithText(text);
   }
 }

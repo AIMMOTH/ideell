@@ -1,12 +1,12 @@
-package eu.ideell.api.submission;
+package eu.ideell.api.mariadb.submission;
 
-import eu.ideell.api.mongodb.entity.SubmissionDocument;
+import eu.ideell.api.mariadb.searchsubmission.SubmissionDocument;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class SubmissionResource {
+public class SubmissionRow {
 
   private String interestedInIdeellMembership;
   private String interestedInFreeKonst;
@@ -19,7 +19,7 @@ public class SubmissionResource {
   private String name;
   private String requestedNickname;
 
-  public SubmissionResource(final SubmissionDocument entity) {
+  public SubmissionRow(final SubmissionDocument entity) {
     emailForContact = entity.getEmailForContact();
     feedback = entity.getFeedback();
     name = entity.getName();

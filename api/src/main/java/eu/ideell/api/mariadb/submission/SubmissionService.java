@@ -1,4 +1,4 @@
-package eu.ideell.api.submission;
+package eu.ideell.api.mariadb.submission;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,9 +10,9 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.view.RedirectView;
 
-import eu.ideell.api.mongodb.entity.SubmissionDocument;
-import eu.ideell.api.searchsubmission.SearchSubmissionRepository;
-import eu.ideell.api.searchsubmission.SearchSubmissionRow;
+import eu.ideell.api.mariadb.searchsubmission.SearchSubmissionRepository;
+import eu.ideell.api.mariadb.searchsubmission.SearchSubmissionRow;
+import eu.ideell.api.mariadb.searchsubmission.SubmissionDocument;
 import eu.ideell.api.util.Monad;
 
 @Service
@@ -24,11 +24,11 @@ public class SubmissionService {
   @Autowired
   private MongoOperations operations;
 
-  public List<SubmissionResource> getSubmissions() {
-    return operations.findAll(SubmissionDocument.class).stream().map(SubmissionResource::new).collect(Collectors.toList());
+  public List<SubmissionRow> getSubmissions() {
+    return operations.findAll(SubmissionDocument.class).stream().map(SubmissionRow::new).collect(Collectors.toList());
   }
 
-  public RedirectView createSubmission(final SubmissionResource resource) {
+  public RedirectView createSubmission(final SubmissionRow resource) {
     final long count = operations.estimatedCount(SubmissionDocument.class);
     Monad.monad(new SubmissionDocument(count, resource))
       .accept(entity -> {

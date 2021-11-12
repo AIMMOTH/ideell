@@ -1,4 +1,4 @@
-package eu.ideell.api.searchsubmission;
+package eu.ideell.api.mariadb.searchsubmission;
 
 import java.util.Date;
 import java.util.Optional;
@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import org.apache.commons.lang3.StringUtils;
 
-import eu.ideell.api.mongodb.entity.SubmissionDocument;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

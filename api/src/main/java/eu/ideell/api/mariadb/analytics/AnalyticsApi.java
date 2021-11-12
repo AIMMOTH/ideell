@@ -1,4 +1,4 @@
-package eu.ideell.api.analytics;
+package eu.ideell.api.mariadb.analytics;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import eu.ideell.api.model.AnalyticsResource;
 
 @RestController
 public class AnalyticsApi {
