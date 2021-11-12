@@ -7,32 +7,32 @@ This is root folder for Ideell's all services. Short description for subfolders
 * doc - Documentation including graphic profile
 * www - 4 separate projects (Ideell start page and PWA apps for Vi, Konst, Kvitter)
 
-### Local Setup ###
+## Local Setup ##
 
 Try the following short description of how to start your local environment
 
-# Install Java 15, MongoDB, MariaDB, Eclipse/Intellij (install Lombok for Eclipse), Maven, Npm
+### Prerequirements ###
 
-1. Add admin to mongo:
-    1. Start mongo with "> mongo"
-    1. Show databases "show dbs"
-    1. Create Ideell database "use ideell"
-    1. Create admin database "use admin"
-    1. Show users "db.getUsers();"
-    1. Create Ideell admin user "db.createUser({ user: "ideell", pwd: "ideell", roles: []});"
-    1. Grant Ideell admin role "db.grantRolesToUser("ideell", [{role: "readWrite", db: "ideell"}])"
-2. Clone repo at https://github.com/AIMMOTH/ideell 
-3. Obtain copy of Stockholm Boot (contact Aimmoth@Github) and install locally
-4. Import Maven project
-5. Set Stockholm Boot as dependency to Maven project
-6. Create project for Ideell start page, Vi, Konst and Kvitter
-7. Install Angular CLI in Vi, Konst and Kvitter (npm install -g @angular/cli)
+Install
+
+* Java 15
+* Docker Compose
+* Intellij or Eclipse (install Lombok and Spring Tools 4 for Eclipse)
+* Maven
+* Npm
+
+### Code ###
+
+1. Clone repo at https://github.com/AIMMOTH/ideell
+1. Import Maven project
+1. Create project for Ideell start page, Vi, Konst and Kvitter
+1. Install Angular CLI in Vi, Konst and Kvitter (npm install -g @angular/cli)
 
 ### Run Locally ###
 
-1. Start MongoDB (in root folder, mongod --dbpath db)
-1. Start backend in Eclipse/Intellij
+1. Start MongoDB and MariaDB with Docker Compose (docker compose up). This will create folder db
 1. Run you selected app with Angular Cli (ng serve)
+1. Start Ideell API with either Maven (mvn spring:boot run) or your IDE
 
 ### Deploy ###
 
