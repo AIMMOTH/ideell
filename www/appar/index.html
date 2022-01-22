@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ideell - Appar</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Knewave&family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+/*
+* https://docs.google.com/presentation/d/1DrX4RyFG9qffRLeIEEO0_5FbSl2b2-Y2GxHPGbG5ofc/edit#slide=id.gc4af5c01d1_0_0
+*/
+.purple {
+  color: #b248f8;
+}
+
+.pink {
+  color: #e32ae3;
+}
+.pink-light {
+  color: #df8edf;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-image: linear-gradient(to right, #eeEEee, white, #eeEEee);
+  color: #434343;
+  font-family: 'Open Sans', sans-serif;
+}
+.loader {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0.0;
+  display: none;
+  z-index: 90;
+}
+
+.body {
+  background: white; max-width : 600px;
+  border: 5px solid;
+  border-color: #df8edf;
+  border-radius: 5px;
+  margin: 0px;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+.article {
+/*   opacity: 1.0; */
+}
+
+.logo {
+  max-width: 400px;
+}
+
+.logo-wrap {
+  text-align: center;
+}
+
+.logo-text {
+  font-family: 'Knewave', cursive;
+  color: #b248f8;
+}
+
+h1, h2, h3, h4 {
+  color: #434343;
+  text-decoration: none;
+  margin: 40px;
+  font-family: 'Comfortaa', cursive;
+}
+h1, h2:hover {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+a {
+  color: #b248f8;
+  font-weight: bold;
+  text-decoration: underline solid 4px;
+}
+.a-clear {
+  color: #434343 !important;
+  font-weight: normal !important;
+  text-decoration: none !important;
+}
+
+p {
+  color: #434343;
+  text-decoration: none;
+  padding: 40px;
+  font-size: 20px;
+}
+div.box.p {
+  padding: 0px;
+}
+.box-p {
+  padding: 10px;
+  margin: 5px;
+  height: 101px;
+}
+.box-h2 {
+  padding: 0px;
+  margin: 30px;
+}
+button {
+  border: none;
+  background: #d18bff;
+  text-decoration: underline solid 2px;
+  font-size: large;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  font-weight: bold;
+  font-family: 'Comfortaa', cursive;
+  cursor: pointer;
+}
+button:hover {
+  background: #b248f8;
+}
+hr {
+  color: #df8edf;
+  border: 2px solid;
+  margin: 20px;
+}
+.box-flow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: radial-gradient(#fde6fd, white);
+}
+
+.box {
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+  height: 250px;
+  margin: 20px;
+  border: 5px solid;
+  border-color: #e32ae3;
+  border-radius: 5px;
+  flex: 0 1 calc(25% - 20px);
+  cursor: pointer;
+  background-color: white;
+}
+.box:hover {
+  -webkit-animation: glow 1.0s infinite alternate;
+  -webkit-transition: border 1.0s linear, box-shadow 1.0s linear;
+  -moz-transition: border 1.0s linear, box-shadow 1.0s linear;
+  transition: border 1.0s linear, box-shadow 1.0s linear;
+}
+
+@-webkit-keyframes glow {
+  from { border-color:rgba(227, 42, 227, 0.5);
+    -webkit-box-shadow: 0 0 5px #e32ae3;
+    -moz-box-shadow: 0 0 5px #e32ae3;
+    box-shadow: 0 0 5px #e32ae3;
+    transition: border 1.0s linear, box-shadow 1.0s linear;
+  }
+  to {
+    border-color: rgb(227, 42, 227);
+    -webkit-box-shadow: 0 0 5px #e32ae3; -moz-box-shadow : 0 0 5px #e32ae3;
+    box-shadow: 0 0 5px #e32ae3;
+    -moz-box-shadow: 0 0 5px #e32ae3;
+  }
+}
+.center {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+footer {
+  text-align: center;
+}
+/*
+ * https://fonts.google.com/icons
+*/
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+</style>
+</head>
+<body>
+  <div class="loader" id="loader"></div>
+  <div class="body">
+    <header>
+      <div class="logo-wrap">
+        <img class="logo" src="logo.png">
+      </div>
+    </header>
+    <article id="#vi">
+      <h1>Vi</h1>
+      <p>Välkommen</p>
+      <a href="#appar" onclick="link(this)"><button>Backa</button></a>
+    </article>
+    <article id="#appar">
+      <h1>Appar</h1>
+      <p>Alla Ideells appar är gratis och har strikt moderering för allas trevnad. Allt data är i säkert förvar och kommer aldrig att säljas.</p>
+      <hr>
+      <div class="box-flow">
+        <a href="#vi" class="a-clear" onclick="link(this)">
+        
+          <div class="box">
+            <h2 class="box-h2">Vi</h2>
+            <p class="box-p">Berätta om din dag för dina vänner och var med i aktiviteter</p>
+            <div class="center">
+              <button>Kolla in</button>
+            </div>
+          </div>
+        </a>
+        
+        <a href="#konst" class="a-clear" onclick="link(this)">
+          <div class="box">
+            <h2 class="box-h2">Konst</h2>
+            <p class="box-p">Visa upp dina bästa bilder till hela världen</p>
+            <div class="center">
+              <button>Kolla in</button>
+            </div>
+          </div>
+        </a>
+        
+        <a href="#kvitter" class="a-clear" onclick="link(this)">
+          <div class="box">
+            <h2 class="box-h2">Kvitter</h2>
+            <p class="box-p">Engagera dig i samhället med små snillrika texter</p>
+            <div class="center">
+              <button>Kolla in</button>
+            </div>
+          </div>
+        </a>
+        
+        <a href="#tindra" class="a-clear" onclick="link(this)">
+          <div class="box">
+            <h2 class="box-h2">Tindra</h2>
+            <p class="box-p">Dejta på ett säkert sätt med massor av valmöjligheter</p>
+            <div class="center">
+              <button>Kolla in</button>
+            </div>
+          </div>
+        </a>
+        
+        <a href="#kompisar" class="a-clear" onclick="link(this)">
+          <div class="box">
+            <h2 class="box-h2">Kompisar</h2>
+            <p class="box-p">Häng och umgås med andra på ett enkelt och kravlöst sätt</p>
+            <div class="center">
+              <button>Kolla in</button>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <h2>Nyttiga appar</h2>
+      <p>Alla appar vi delar med oss av kan användas på ett säkert sätt</p>
+      <hr>
+      <div class="box-flow">
+      
+        <a href="#kalender" class="a-clear" onclick="link(this)">
+          <div class="box">
+            <h2 class="box-h2">Kalender</h2>
+            <p class="box-p">Planera din dag och se vad du har gjort</p>
+            <div class="center">
+              <button>Kolla in</button>
+            </div>
+          </div>
+        </a>
+        
+        <a href="#anteckningar" class="a-clear" onclick="link(this)">
+          <div class="box">
+            <h2 class="box-h2">Anteckningar</h2>
+            <p class="box-p">Skriv anteckningar</p>
+            <div class="center">
+              <button>Kolla in</button>
+            </div>
+          </div>
+        </a>
+        
+        <a href="#att-göra" class="a-clear" onclick="link(this)">
+          <div class="box">
+            <h2 class="box-h2">Att-göra</h2>
+            <p class="box-p">Skriv nyttiga att-göra-listor</p>
+            <div class="center">
+              <button>Kolla in</button>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <!--     <span class="material-icons md-18">face</span> -->
+      <!--     <span class="material-icons md-24">face</span> -->
+      <!--     <span class="material-icons md-36">face</span> -->
+      <!--     <span class="material-icons md-48">face</span> -->
+      <!--     <span class="material-icons md-dark">face</span> -->
+      <!--     <span class="material-icons md-dark md-inactive">face</span> -->
+      <!--     <span class="material-icons md-light">face</span> -->
+      <!--     <span class="material-icons md-light md-inactive">face</span> -->
+      <h2>Riktlinjer</h2>
+      <p>Ideell är en ideell förening med frivilliga som hjälper till. Allt data sparas inom Sverige och kommer inte säljas. Vi följer självklart EU:s GDPR.</p>
+      <hr>
+    </article>
+    <footer>2022 Ideell</footer>
+  </div>
+  <script type="text/javascript">
+  
+  var height;
+  var width;
+  
+  var appar = "#appar";
+  var vi = "#vi";
+  var pages = [appar, vi];
+  pages.forEach(id => document.getElementById(id).style.display = "none");
+  document.getElementById("#appar").style.display = "block";
+  
+  function link(e) {
+	  var href = e.attributes.href.value;
+// 	  console.log();
+//     console.log(e.target);
+//     console.log(e.target.href);
+// 	  var href = window.location.href;
+	  console.log("link:" + href);
+	  switch (href) {
+	  case "#appar":
+      console.log("APPAR");
+//       document.getElementById("#vi").style.display = "none";
+      startFadeOut("#vi");
+//       document.getElementById("#appar").style.display = "block";
+		  break;
+	  case "#vi":
+		  console.log("VI");
+      startFadeOut("#vi");
+//       document.getElementById("#appar").style.display = "none";
+//       document.getElementById("#vi").style.display = "block";
+		  break;
+	  default:
+	  }
+// 	  var last = href.lastIndexOf("#");
+// 	  if (!!last) {
+// 		  var cut = href.substring(last);
+// 		  if (!!cut) {
+// 			  console.log(cut);
+// 		  }
+// 	  }
+	  return false;
+  }
+  function startFadeOut(id) {
+	  console.log("startFadeOut");
+	  var element = document.getElementById("loader");
+	  element.style.display = "block";
+	  console.log("element?" + (!!element));
+	  if (!!element) {
+		  element.style.opacity = "0.5";
+	      element.style.transition = "opacity 2s";
+        element.style["webkit-transition"] = "opacity 2s";
+        element.style["moz-transition"] = "opacity 2s";
+        element.style["ms-transition"] = "opacity 2s";
+        element.style["o-transition"] = "opacity 2s";
+// 		  var intervalId = setInterval(function() {
+// 			  console.log("interval:" + element.style.opacity);
+// 		    if (element.style.opacity >= 1.0) {
+// 		    	clearInterval(intervalId); 
+// 		    } else {
+// 		      element.style.opacity = element.style.opacity + 0.1;
+// 		      console.log("plus opacity");
+// 		    }
+// 		  }, 200);
+	  }
+  }
+  function reportWindowSize() {
+	  height = window.innerHeight;
+	  width = window.innerWidth;
+	  console.log("h:" + height + ", w:" + width);
+	}
+
+	window.onresize = reportWindowSize;
+  </script>
+</body>
+</html>
